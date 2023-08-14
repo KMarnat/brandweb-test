@@ -109,7 +109,6 @@ table {
 }
 
 input {
-  -webkit-appearance: none;
   border-radius: 0;
 }
 
@@ -124,12 +123,18 @@ input[type='reset'] {
   cursor: pointer;
   outline: inherit;
 }
+////////////////////////////////////////////////////////////////////
 /*CSS RESET END*/
+////////////////////////////////////////////////////////////////////
+
+@import '//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css';
+
 :root {
   --main-white: #f1f5ff;
   --title-bg: #afafaf10;
   --bg-color: #0c0d21;
   --main-gray: #5e6271;
+  --btn-bg: #090a1c;
   --main-font: 'Titillium Web', sans-serif;
 }
 
@@ -185,6 +190,10 @@ body {
       img {
         position: absolute;
       }
+
+      &:hover {
+        color: var(--main-white);
+      }
     }
   }
 
@@ -209,7 +218,7 @@ body {
   padding: 40px 100px;
   display: flex;
   height: 120px;
-  width: 100%;
+  width: calc(100vw - 300px);
   justify-content: space-between;
   align-items: center;
 
@@ -224,15 +233,21 @@ body {
       h4 {
         margin-bottom: 5px;
       }
-    }
-  }
 
-  &--profile {
-    border: 1px solid var(--main-white);
-    border-radius: 50%;
-    height: 57px;
-    width: 57px;
-    margin: 0 24px;
+      p {
+        color: var(--main-gray);
+      }
+    }
+    &__profile {
+      border-radius: 50%;
+      height: 57px;
+      width: 57px;
+      margin: 0 24px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &--left {
@@ -241,7 +256,7 @@ body {
   }
 
   button {
-    color: var(--main-white);
+    color: var(--main-gray);
     background-color: transparent;
     height: 38px;
     width: 38px;
@@ -249,6 +264,11 @@ body {
     border: 1px solid var(--main-gray);
     font-size: 28px;
     margin-right: 15px;
+    padding-bottom: 5px;
+
+    &:hover {
+      color: var(--main-white);
+    }
   }
 
   input {
@@ -260,4 +280,33 @@ body {
     border: 1px solid var(--main-gray);
     margin-left: 15px;
   }
+}
+
+.filter {
+  margin: 20px 100px 20px 100px;
+
+  h2 {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  &--hashtag {
+    display: flex;
+    flex-direction: row;
+
+    p {
+      margin: 20px 20px 0 0;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.active {
+  background-color: var(--title-bg);
 }
