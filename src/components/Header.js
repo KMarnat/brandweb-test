@@ -1,12 +1,17 @@
 import bell from '../assets/bell.svg';
+import { ArrowButton } from './ArrowButton';
 
-export function Header() {
+export function Header({ query, setQuery }) {
+  const onChange = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <header className="header">
       <div className="header--left">
-        <button>&lt;</button>
-        <button>&gt;</button>
-        <input type="text" placeholder="Search..."></input>
+        <ArrowButton>&lt;</ArrowButton>
+        <ArrowButton>&gt;</ArrowButton>
+        <input type="text" placeholder="Search..." onChange={onChange} value={query}></input>
       </div>
       <div className="header--right">
         <div className="header--right__text">
