@@ -3,13 +3,16 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { SearchResults } from './components/SearchResults';
 import { useEffect, useState } from 'react';
-import ReactLoading from 'react-loading';
 
 export default function App() {
   const [query, setQuery] = useState('');
   const [games, setGames] = useState([]);
+  const [searchedGames, setSearchedGames] = useState([]);
   const [activeTab, setActiveTab] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [selectedGameData, setSelectedGameData] = useState({});
 
   const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
 
@@ -19,7 +22,7 @@ export default function App() {
         // if (query.length < 3) return;
         setIsLoading(true);
         const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}`);
-        if (!res) throw new Error('🛑');
+        if (!res) throw new Error('Error fetchin data');
 
         const newData = await res.json();
         setGames(newData.results);
@@ -32,34 +35,115 @@ export default function App() {
     fetchData();
   }, []);
 
-  console.log(games);
+  useEffect(
+    function () {
+      const fetchData = async () => {
+        try {
+          // if (query.length < 3) return;
+          setIsLoading(true);
+          const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}&search=${query}`);
+          if (!res) throw new Error('Error fetching searched data');
+
+          const newData = await res.json();
+          setSearchedGames(newData.results);
+        } catch (err) {
+          console.error(err.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      if (query.length < 3) {
+        setSearchedGames([]);
+        return;
+      }
+      fetchData();
+    },
+    [query]
+  );
+
   // console.log(games);
+
+  useEffect(() => {
+    if (selectedGame !== null) {
+      fetchGameData(selectedGame);
+    }
+  }, [selectedGame]);
+
+  const fetchGameData = async (selectedGame) => {
+    try {
+      setSelectedGameData([]);
+      const res = await fetch(
+        `https://api.rawg.io/api/games/${selectedGame}?key=01e85fc802ad4eb8850bc0b50857cb0b`
+      );
+      if (!res) throw new Error('Error fetching game data');
+
+      const newData = await res.json();
+      setSelectedGameData({ ...newData });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  console.log(selectedGameData);
+  console.log(selectedGameData.developers);
 
   return (
     <div className="project">
       <Sidebar />
       <div>
-        <Header query={query} setQuery={setQuery} />
-        <Filter
-          KEY={KEY}
-          games={games}
-          setGames={setGames}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-        />
-        {isLoading ? (
-          <ReactLoading
-            type={'spin'}
-            color="#f1f5ff"
-            height={'10%'}
-            width={'10%'}
-            className="loading"
+        <Header query={query} setQuery={setQuery} setSelectedGame={setSelectedGame} />
+        {selectedGame ? (
+          <SelectedGame
+            selectedId={selectedGameData.id}
+            selectedName={selectedGameData.name}
+            selectedImg={selectedGameData.background_image}
+            selectedDevs={selectedGameData.developers}
           />
         ) : (
-          <SearchResults games={games} activeTab={activeTab} />
+          <>
+            <Filter
+              KEY={KEY}
+              games={games}
+              setGames={setGames}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+            {searchedGames.length ? (
+              <SearchResults
+                games={searchedGames}
+                activeTab={activeTab}
+                isLoading={isLoading}
+                KEY={KEY}
+              />
+            ) : (
+              <SearchResults
+                games={searchedGames.length ? searchedGames : games}
+                activeTab={activeTab}
+                isLoading={isLoading}
+                KEY={KEY}
+                setSelectedGame={setSelectedGame}
+              />
+            )}
+          </>
         )}
+      </div>
+    </div>
+  );
+}
+
+function SelectedGame({ selectedId, selectedName, selectedImg, selectedDevs }) {
+  console.log(selectedDevs);
+  return (
+    <div className="selected">
+      <div>
+        <img src={selectedImg} className="cover" />
+        <h1>{selectedName}</h1>
+        {/* {selectedDevs.map((dev) => (
+          <h2 key={dev.id}>{dev.name}</h2>
+        ))} */}
+        <h2>{selectedDevs[0].name}</h2>
       </div>
     </div>
   );
