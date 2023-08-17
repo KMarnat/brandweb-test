@@ -152,11 +152,12 @@ body {
 
 .sidebar {
   background-color: #090a1c;
-  width: 280px;
+  width: 18rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: 70px;
+  position: fixed;
 
   &--logo {
     height: 83px;
@@ -216,10 +217,15 @@ body {
   }
 }
 
+.main {
+  margin-left: 14%;
+}
+
 .header {
   padding: 40px 100px;
   display: flex;
   height: 120px;
+  background-color: var(--bg-color);
   width: calc(100vw - 300px);
   justify-content: space-between;
   align-items: center;
@@ -301,10 +307,6 @@ body {
       padding: 10px 20px;
       border-radius: 10px;
       font-weight: 600;
-
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
 }
@@ -406,15 +408,93 @@ body {
 
 .selected {
   display: flex;
-  height: 100%;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  width: inherit;
   margin: 30px 100px;
+  gap: 30px;
+
+  h1 {
+    font-size: 1.7rem;
+    padding: 1.5rem 0 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
+    border-image-slice: 1;
+  }
+
+  &--left,
+  &--right {
+    width: 35%;
+    line-height: 1.2rem;
+  }
+
+  &--right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 10%);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  .detail {
+    margin-bottom: 1.5rem;
+  }
+
+  .detail h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    color: var(--main-gray);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .devs {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+
+    padding-bottom: 1rem;
+
+    span:not(:first-of-type) {
+      margin-left: 5px;
+    }
+  }
 
   .cover {
-    width: 500px;
+    width: 100%;
+    height: auto;
   }
+
+  .description {
+    width: 30%;
+  }
+}
+
+.metacritic {
+  padding: 9px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: inline-flex;
+  align-items: center;
+}
+
+.high {
+  color: rgb(7, 192, 7);
+  border-color: rgb(7, 192, 7);
+}
+
+.mid {
+  color: rgb(240, 240, 4);
+  border-color: rgb(240, 240, 4);
+}
+
+.low {
+  color: rgb(230, 2, 2);
+  border-color: rgb(230, 2, 2);
 }
 
 .loading {
@@ -424,6 +504,10 @@ body {
 
 .active {
   background-color: var(--title-bg);
+}
+
+.active-btn {
+  color: var(--main-white) !important;
 }
 
 .skeleton {

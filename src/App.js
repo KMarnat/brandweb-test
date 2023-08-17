@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
 import { Filter } from './components/Filter';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { SearchResults } from './components/SearchResults';
-import { useEffect, useState } from 'react';
+import { SelectedGame } from './components/SelectedGame';
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -71,6 +72,7 @@ export default function App() {
 
   const fetchGameData = async (selectedGame) => {
     try {
+      setIsLoading(true);
       setSelectedGameData([]);
       const res = await fetch(
         `https://api.rawg.io/api/games/${selectedGame}?key=01e85fc802ad4eb8850bc0b50857cb0b`
@@ -81,23 +83,37 @@ export default function App() {
       setSelectedGameData({ ...newData });
     } catch (err) {
       console.error(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   console.log(selectedGameData);
-  console.log(selectedGameData.developers);
 
   return (
     <div className="project">
       <Sidebar />
-      <div>
-        <Header query={query} setQuery={setQuery} setSelectedGame={setSelectedGame} />
+      <div className="main">
+        <Header
+          query={query}
+          setQuery={setQuery}
+          setSelectedGame={setSelectedGame}
+          selectedGame={selectedGame}
+        />
         {selectedGame ? (
           <SelectedGame
             selectedId={selectedGameData.id}
             selectedName={selectedGameData.name}
             selectedImg={selectedGameData.background_image}
             selectedDevs={selectedGameData.developers}
+            selectedDesc={selectedGameData.description_raw}
+            selectedRelease={selectedGameData.released}
+            selectedRating={selectedGameData.rating}
+            selectedPlatforms={selectedGameData.platforms}
+            selectedPublishers={selectedGameData.publishers}
+            selectedGenres={selectedGameData.genres}
+            selectedMetacritic={selectedGameData.metacritic}
+            isLoading={isLoading}
           />
         ) : (
           <>
@@ -115,6 +131,7 @@ export default function App() {
                 games={searchedGames}
                 activeTab={activeTab}
                 isLoading={isLoading}
+                setSelectedGame={setSelectedGame}
                 KEY={KEY}
               />
             ) : (
@@ -128,22 +145,6 @@ export default function App() {
             )}
           </>
         )}
-      </div>
-    </div>
-  );
-}
-
-function SelectedGame({ selectedId, selectedName, selectedImg, selectedDevs }) {
-  console.log(selectedDevs);
-  return (
-    <div className="selected">
-      <div>
-        <img src={selectedImg} className="cover" />
-        <h1>{selectedName}</h1>
-        {/* {selectedDevs.map((dev) => (
-          <h2 key={dev.id}>{dev.name}</h2>
-        ))} */}
-        <h2>{selectedDevs[0].name}</h2>
       </div>
     </div>
   );
