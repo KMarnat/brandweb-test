@@ -11,9 +11,9 @@ import tournaments from '../assets/tournaments.svg';
 export function Sidebar() {
   return (
     <div className="sidebar">
-      <img src={logo} alt="logo" className="sidebar--logo" />
-      <div className="sidebar--menu">
-        <div className="sidebar--title">
+      <img src={logo} alt="logo" className="sidebar__logo" />
+      <div className="sidebar__menu">
+        <div className="title">
           <h4>ACTIVITIES</h4>
         </div>
         <ul>
@@ -31,8 +31,8 @@ export function Sidebar() {
           </li>
         </ul>
       </div>
-      <div className="sidebar--menu">
-        <h4 className="sidebar--title">OTHER</h4>
+      <div className="sidebar__menu">
+        <h4 className="title">OTHER</h4>
         <ul>
           <li>
             <img src={news} alt="challenges icon" />
@@ -52,8 +52,8 @@ export function Sidebar() {
           </li>
         </ul>
       </div>
-      <button className="sidebar--btn">CREATE</button>
-      <img src={socials} alt="social icons" className="sidebar--socials" />
+      <button className="sidebar__btn">CREATE</button>
+      <img src={socials} alt="social icons" className="sidebar__socials" />
     </div>
   );
 }

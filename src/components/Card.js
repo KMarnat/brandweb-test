@@ -9,11 +9,11 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
   }
 
   return (
-    <article className="results--grid__card" onClick={() => handleGameClick(id)}>
-      <img src={poster} alt="game poster" className="results--grid__card--poster" />
-      <div className="results--grid__card--shadow"></div>
-      <div className="results--grid__card--content">
-        <div className="results--grid__card--description">
+    <article className="card" onClick={() => handleGameClick(id)}>
+      <img src={poster} alt="game poster" className="card__poster" />
+      <div className="card__shadow"></div>
+      <div className="card__content">
+        <div className="description">
           <h2>{name.length < 20 ? name : `${name.substring(0, 20)}...`}</h2>
           <p>
             {genres.map((genre, i) => (
@@ -24,7 +24,7 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
             ))}
           </p>
         </div>
-        <div className="results--grid__card--icons">
+        <div className="icons">
           <img src={participate} alt="crosshair icon" />
           <img src={addfriend} alt="add friend icon" />
           <img src={addfavorite} alt="add favorite icon" />

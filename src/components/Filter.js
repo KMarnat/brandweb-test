@@ -31,7 +31,7 @@ export function Filter({ games, setGames, KEY, activeTab, setActiveTab, setIsLoa
   return (
     <div className="filter">
       <h2>Games</h2>
-      <div className="filter--hashtag">
+      <div className="filter__hashtag">
         <button
           className={activeTab === 1 ? 'active' : ''}
           onClick={() => handleFiltering(`https://api.rawg.io/api/games?key=${KEY}`, 1, 'all')}

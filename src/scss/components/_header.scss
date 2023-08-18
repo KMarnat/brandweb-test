@@ -1,0 +1,77 @@
+.header {
+  padding: 40px 100px;
+  display: flex;
+  height: 120px;
+  background-color: var(--bg-color);
+  width: calc(100vw - 300px);
+  justify-content: space-between;
+  align-items: center;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  button {
+    color: var(--main-gray);
+    background-color: transparent;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--main-gray);
+    font-size: 28px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+
+    &:hover {
+      color: var(--main-white);
+    }
+  }
+
+  input {
+    width: 350px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 20px;
+    background-color: transparent;
+    border: 1px solid var(--main-gray);
+    margin-left: 15px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .user {
+      text-align: right;
+
+      h4 {
+        margin-bottom: 5px;
+      }
+
+      p {
+        color: var(--main-gray);
+      }
+    }
+
+    .profile {
+      border-radius: 50%;
+      height: 57px;
+      width: 57px;
+      margin: 0 24px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .bell:hover {
+      cursor: pointer;
+    }
+  }
+
+  .active {
+    color: var(--main-white) !important;
+  }
+}

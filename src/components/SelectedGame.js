@@ -3,7 +3,6 @@ import { Metacritic } from './Metacritic';
 import { SkeletonSelect } from './SkeletonSelect';
 
 export function SelectedGame({
-  selectedId,
   selectedName,
   selectedImg,
   selectedDevs,
@@ -22,7 +21,7 @@ export function SelectedGame({
         <SkeletonSelect />
       ) : (
         <>
-          <div className="selected--left">
+          <div className="selected__left">
             <img src={selectedImg} className="cover" alt="game poster" />
             <h1>{selectedName}</h1>
             <GameDetail
@@ -30,7 +29,7 @@ export function SelectedGame({
               detail={selectedDesc?.slice(0, selectedDesc.indexOf('Español'))}
             />
           </div>
-          <div className="selected--right">
+          <div className="selected__right">
             <GameDetail title="Released" detail={selectedRelease} />
             <GameDetail
               title="Platforms"

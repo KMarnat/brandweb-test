@@ -1,0 +1,68 @@
+.sidebar {
+  background-color: #090a1c;
+  width: 18rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+  position: fixed;
+
+  &__logo {
+    height: 83px;
+    margin-bottom: 70px;
+  }
+
+  &__menu {
+    padding: 15px 0 15px 50px;
+
+    li {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 40px;
+      width: auto;
+
+      color: var(--main-gray);
+
+      a {
+        padding-left: 40px;
+        z-index: 3;
+
+        &:hover {
+          color: var(--main-white);
+        }
+      }
+
+      img {
+        position: absolute;
+      }
+    }
+
+    .title {
+      border: 1px solid transparent;
+      border-radius: 0px 20px 20px 0;
+      background-color: var(--title-bg);
+      padding: 10px 0 10px 60px;
+      width: 180px;
+      margin-left: -50px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__btn {
+    color: var(--main-white);
+    width: 146px;
+    height: 41px;
+    border: 2px solid #7000ff;
+    border-radius: 25px;
+    align-self: center;
+    background-color: transparent;
+    margin: 180px 0 20px 0;
+  }
+
+  &__socials {
+    width: 115px;
+    align-self: center;
+  }
+}

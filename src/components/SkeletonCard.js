@@ -5,14 +5,14 @@ import repost from '../assets/repost.svg';
 
 export function SkeletonCard() {
   return (
-    <article className="results--grid__card">
-      <div className="results--grid__card--poster skeleton"></div>
-      <div className="results--grid__card--content">
-        <div className="results--grid__card--description">
+    <article className="card">
+      <div className="card__poster skeleton"></div>
+      <div className="card__content">
+        <div className="description">
           <h2 className="skeleton">placeholder</h2>
           <h2 className="skeleton">placeholder</h2>
         </div>
-        <div className="results--grid__card--icons">
+        <div className="icons">
           <img src={participate} alt="crosshair icon" />
           <img src={addfriend} alt="add friend icon" />
           <img src={addfavorite} alt="add favorite icon" />

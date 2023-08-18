@@ -1,0 +1,23 @@
+:root {
+  --main-white: #f1f5ff;
+  --title-bg: #afafaf10;
+  --bg-color: #0c0d21;
+  --main-gray: #5e6271;
+  --btn-bg: #090a1c;
+  --main-font: 'Titillium Web', sans-serif;
+  --card-bg: #202134;
+}
+
+body {
+  color: var(--main-white);
+  font-family: var(--main-font);
+  background-color: var(--bg-color);
+}
+
+.project {
+  display: flex;
+
+  .main {
+    margin-left: 14%;
+  }
+}

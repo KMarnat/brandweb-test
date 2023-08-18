@@ -20,7 +20,6 @@ export default function App() {
   useEffect(function () {
     const fetchData = async () => {
       try {
-        // if (query.length < 3) return;
         setIsLoading(true);
         const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}`);
         if (!res) throw new Error('Error fetchin data');
@@ -88,7 +87,7 @@ export default function App() {
     }
   };
 
-  console.log(selectedGameData);
+  // console.log(selectedGameData);
 
   return (
     <div className="project">
@@ -102,7 +101,6 @@ export default function App() {
         />
         {selectedGame ? (
           <SelectedGame
-            selectedId={selectedGameData.id}
             selectedName={selectedGameData.name}
             selectedImg={selectedGameData.background_image}
             selectedDevs={selectedGameData.developers}

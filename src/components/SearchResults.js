@@ -8,7 +8,7 @@ export function SearchResults({ games, activeTab, isLoading, setSelectedGame }) 
   return (
     <div className="results">
       <h4>{resultsTitle[activeTab - 1]}</h4>
-      <div className="results--grid">
+      <div className="results__grid">
         {isLoading
           ? Array.from({ length: totalSkeletonCards }).map((_, i) => <SkeletonCard key={i} />)
           : games.map((game) => (
