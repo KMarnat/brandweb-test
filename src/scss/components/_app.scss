@@ -13,4 +13,8 @@ body {
   font-family: var(--main-font);
   background-color: var(--bg-color);
   margin-left: 17rem;
+
+  @media only screen and (max-width: 1000px) {
+    margin-left: 0;
+  }
 }
