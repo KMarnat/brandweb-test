@@ -12,48 +12,52 @@ export function Sidebar() {
   return (
     <div className="sidebar">
       <img src={logo} alt="logo" className="sidebar__logo" />
-      <div className="sidebar__menu">
-        <div className="title">
-          <h4>ACTIVITIES</h4>
+      <div>
+        <div className="sidebar__menu">
+          <div className="title">
+            <h4>ACTIVITIES</h4>
+          </div>
+          <ul>
+            <li>
+              <img src={challenges} alt="challenges icon" />
+              <a href="#">Games</a>
+            </li>
+            <li>
+              <img src={tournaments} alt="tournaments icon" />
+              <a href="#">Tournaments</a>
+            </li>
+            <li>
+              <img src={teams} alt="teams icon" />
+              <a href="#">Teams</a>
+            </li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <img src={challenges} alt="challenges icon" />
-            <a href="#">Games</a>
-          </li>
-          <li>
-            <img src={tournaments} alt="tournaments icon" />
-            <a href="#">Tournaments</a>
-          </li>
-          <li>
-            <img src={teams} alt="teams icon" />
-            <a href="#">Teams</a>
-          </li>
-        </ul>
+        <div className="sidebar__menu">
+          <h4 className="title">OTHER</h4>
+          <ul>
+            <li>
+              <img src={news} alt="challenges icon" />
+              <a href="#">News</a>
+            </li>
+            <li>
+              <img src={partners} alt="partners icon" />
+              <a href="#">Partners</a>
+            </li>
+            <li>
+              <img src={about} alt="about icon" />
+              <a href="#">About</a>
+            </li>
+            <li>
+              <img src={help} alt="help icon" />
+              <a href="#">Help</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="sidebar__menu">
-        <h4 className="title">OTHER</h4>
-        <ul>
-          <li>
-            <img src={news} alt="challenges icon" />
-            <a href="#">News</a>
-          </li>
-          <li>
-            <img src={partners} alt="partners icon" />
-            <a href="#">Partners</a>
-          </li>
-          <li>
-            <img src={about} alt="about icon" />
-            <a href="#">About</a>
-          </li>
-          <li>
-            <img src={help} alt="help icon" />
-            <a href="#">Help</a>
-          </li>
-        </ul>
+      <div className="sidebar__bottom">
+        <button className="sidebar__btn">CREATE</button>
+        <img src={socials} alt="social icons" className="sidebar__socials" />
       </div>
-      <button className="sidebar__btn">CREATE</button>
-      <img src={socials} alt="social icons" className="sidebar__socials" />
     </div>
   );
 }

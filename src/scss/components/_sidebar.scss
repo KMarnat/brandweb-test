@@ -4,30 +4,33 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 4rem;
   position: fixed;
   inset: 0 auto 0 0;
 
   &__logo {
-    height: 83px;
-    margin-bottom: 70px;
+    height: 5rem;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
   }
 
   &__menu {
-    padding: 15px 0 15px 50px;
+    padding: 1rem 0 1rem 3rem;
 
     li {
-      padding: 10px;
+      padding: 0.5rem;
       display: flex;
       align-items: center;
       position: relative;
-      height: 40px;
+      height: 2.5rem;
       width: auto;
-
       color: var(--main-gray);
 
       a {
-        padding-left: 40px;
+        padding-left: 2.5rem;
         z-index: 3;
 
         &:hover {
@@ -42,28 +45,29 @@
 
     .title {
       border: 1px solid transparent;
-      border-radius: 0px 20px 20px 0;
+      border-radius: 0 2rem 2rem 0;
       background-color: var(--title-bg);
-      padding: 10px 0 10px 60px;
-      width: 180px;
-      margin-left: -50px;
-      margin-bottom: 10px;
+      padding: 0.6rem 0 0.6rem 4rem;
+      width: 12rem;
+      margin-left: -4rem;
+      margin-bottom: 0.5rem;
     }
   }
 
   &__btn {
     color: var(--main-white);
-    width: 146px;
-    height: 41px;
+    width: 9rem;
+    height: 2.5rem;
     border: 2px solid #7000ff;
     border-radius: 25px;
     align-self: center;
     background-color: transparent;
-    margin: 180px 0 20px 0;
+    margin: 5rem 0 1rem 0;
   }
 
   &__socials {
-    width: 115px;
+    width: 7rem;
     align-self: center;
+    margin-bottom: 2rem;
   }
 }
