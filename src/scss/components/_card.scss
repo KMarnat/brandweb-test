@@ -1,34 +1,38 @@
 .card {
-  height: 372px;
-  width: 333px;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 
   &:hover {
     cursor: pointer;
   }
 
-  &__poster {
-    height: 180px;
-    width: 317px;
-    border-radius: 10px;
-    position: absolute;
-  }
-
   &__content {
-    margin-top: 150px;
-    padding-top: 70px;
-    height: 70%;
-    width: 100%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem 0 2rem;
     background-color: var(--card-bg);
+    position: relative;
+    top: -1.5rem;
+    align-items: stretch;
+    min-height: 60%;
+    min-width: 100%;
+    max-width: 20rem;
+
+    @media only screen and (max-width: 1400px) {
+      min-width: 80%;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      min-width: 80%;
+    }
+
+    @media only screen and (max-width: 1000px) {
+      min-width: 60%;
+    }
   }
 
   &__shadow {
@@ -38,17 +42,11 @@
     top: 2%;
     left: 10%;
     border-radius: 50%;
-    // background-color: #1362d8;
     box-shadow: #1362d8 0px 22px 70px 25px;
     z-index: -1;
   }
 
   .description {
-    width: 300px;
-    height: 100px;
-    border-bottom: 1px solid;
-    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
-    border-image-slice: 1;
     padding-bottom: 24px;
 
     h2 {
@@ -67,10 +65,36 @@
   }
 
   .icons {
-    margin: auto 0;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    gap: 3.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid;
+    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
+    border-image-slice: 1;
+  }
+
+  .adaptive {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 3;
+    position: relative;
+
+    &-photo {
+      height: 150px; /*This is what determines the height of your image*/
+      flex-grow: 1;
+
+      img {
+        max-height: 100%;
+        min-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: bottom;
+        border-radius: 10px;
+        aspect-ratio: 2;
+      }
+    }
   }
 }
