@@ -10,11 +10,16 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
 
   return (
     <article className="card" onClick={() => handleGameClick(id)}>
-      <img src={poster} alt="game poster" className="card__poster" />
-      <div className="card__shadow"></div>
+      <div className="adaptive">
+        <div className="card__shadow"></div>
+        <div className="adaptive-photo">
+          <img src={poster} alt="game poster" className="card__poster" />
+        </div>
+      </div>
       <div className="card__content">
         <div className="description">
-          <h2>{name.length < 20 ? name : `${name.substring(0, 20)}...`}</h2>
+          {/* <h2>{name.length < 20 ? name : `${name.substring(0, 20)}...`}</h2> */}
+          <h2>{name}</h2>
           <p>
             {genres.map((genre, i) => (
               <span key={i}>
