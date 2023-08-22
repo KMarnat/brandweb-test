@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { GameDetail } from './GameDetail';
 import { Metacritic } from './Metacritic';
 import { SkeletonSelect } from './SkeletonSelect';
@@ -15,6 +16,13 @@ export function SelectedGame({
   selectedMetacritic,
   isLoading,
 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const englishAbout = selectedDesc?.slice(0, selectedDesc.indexOf('Español'));
+
+  function toggleExpanded() {
+    setIsExpanded((isExpanded) => !isExpanded);
+  }
+
   return (
     <article className="selected">
       {isLoading ? (
@@ -24,10 +32,17 @@ export function SelectedGame({
           <div className="selected__left">
             <img src={selectedImg} className="cover" alt="game poster" />
             <h1>{selectedName}</h1>
-            <GameDetail
-              title="About"
-              detail={selectedDesc?.slice(0, selectedDesc.indexOf('Español'))}
-            />
+            <div className="detail">
+              <h2>About</h2>
+              <p className="about">
+                {isExpanded
+                  ? englishAbout
+                  : englishAbout?.split(' ').slice(0, 30).join(' ') + '...'}
+              </p>
+              <button onClick={toggleExpanded}>
+                {isExpanded ? 'Show less...' : 'Show more...'}
+              </button>
+            </div>
           </div>
           <div className="selected__right">
             <GameDetail title="Released" detail={selectedRelease} />
