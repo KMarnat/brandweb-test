@@ -19,6 +19,7 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
           &lt;
         </ArrowButton>
         <ArrowButton>&gt;</ArrowButton>
+
         <input type="text" placeholder="Search..." onChange={onChange} value={query}></input>
       </div>
       <div className="header__right">

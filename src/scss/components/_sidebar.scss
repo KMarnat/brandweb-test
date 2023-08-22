@@ -8,13 +8,20 @@
   padding-top: 4rem;
   position: fixed;
   inset: 0 auto 0 0;
+  z-index: 5;
+  transition: left 0.5s ease-in-out;
 
   @media only screen and (max-width: 1000px) {
-    display: none;
+    width: 15rem;
+    left: -13rem;
   }
 
   &__logo {
     height: 5rem;
+
+    @media only screen and (max-width: 1000px) {
+      height: 3.5rem;
+    }
   }
 
   &__bottom {
@@ -75,4 +82,22 @@
     align-self: center;
     margin-bottom: 2rem;
   }
+
+  &__toggle {
+    position: absolute;
+    inset: 50% 0 auto auto;
+    font-size: 2rem;
+    padding: 5px;
+    display: none;
+    height: 3.5rem;
+    z-index: 6;
+
+    @media only screen and (max-width: 1000px) {
+      display: block;
+    }
+  }
+}
+
+.active-sidebar {
+  left: 0 !important;
 }

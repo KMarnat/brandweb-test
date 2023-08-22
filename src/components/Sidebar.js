@@ -7,10 +7,20 @@ import news from '../assets/news.svg';
 import partners from '../assets/partners.svg';
 import teams from '../assets/teams.svg';
 import tournaments from '../assets/tournaments.svg';
+import { useState } from 'react';
 
 export function Sidebar() {
+  const [openSidebar, setOpenSidebar] = useState(false);
+
+  function toggleSidebar() {
+    setOpenSidebar((openSidebar) => !openSidebar);
+  }
+
   return (
-    <div className="sidebar">
+    <div className={openSidebar ? 'sidebar active-sidebar' : 'sidebar'}>
+      <button className="sidebar__toggle" onClick={toggleSidebar}>
+        {openSidebar ? '«' : '»'}
+      </button>
       <img src={logo} alt="logo" className="sidebar__logo" />
       <div>
         <div className="sidebar__menu">
