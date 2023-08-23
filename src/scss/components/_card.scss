@@ -1,8 +1,8 @@
 .card {
   position: relative;
-  display: flex;
+  // display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 
   &:hover {
     cursor: pointer;
@@ -18,21 +18,8 @@
     position: relative;
     top: -1.5rem;
     align-items: stretch;
-    min-height: 60%;
-    min-width: 100%;
-    max-width: 20rem;
-
-    @media only screen and (max-width: 1400px) {
-      min-width: 80%;
-    }
-
-    @media only screen and (max-width: 1200px) {
-      min-width: 80%;
-    }
-
-    @media only screen and (max-width: 1000px) {
-      min-width: 45%;
-    }
+    height: calc(100% - 150px);
+    width: 100%;
   }
 
   &__shadow {
@@ -68,7 +55,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap: 3.5rem;
     padding: 1rem 0;
     border-top: 1px solid;
     border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
@@ -84,6 +70,7 @@
     &-photo {
       height: 150px; /*This is what determines the height of your image*/
       flex-grow: 1;
+      margin: 0 1rem;
 
       img {
         max-height: 100%;
