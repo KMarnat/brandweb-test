@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: inherit;
-  margin: 30px 100px;
-  gap: 30px;
+  margin: 1.875rem 10.25rem;
+  gap: 1.875rem;
 
   h1 {
     font-size: 1.7rem;
@@ -17,18 +16,14 @@
 
   &__left,
   &__right {
-    width: 35%;
+    width: 30rem;
     line-height: 1.2rem;
 
-    @media only screen and (max-width: 1200px) {
-      width: 70%;
-    }
-
-    @media only screen and (max-width: 800px) {
-      width: 90%;
-    }
     @media only screen and (max-width: 600px) {
-      width: 100%;
+      width: 20rem;
+    }
+    @media only screen and (max-width: 400px) {
+      width: 15rem;
     }
   }
 
@@ -36,12 +31,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 5rem);
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
-
-    @media only screen and (max-width: 1200px) {
-      // margin-bottom: 3rem;
-    }
+    grid-column-gap: 3.75rem;
+    grid-row-gap: 3.75rem;
   }
 
   .detail {
@@ -56,26 +47,14 @@
     }
   }
 
-  .content {
-    display: flex;
-    flex-direction: row;
-  }
-
   .cover {
     width: 100%;
     height: auto;
   }
 
-  .description {
-    width: 30%;
-  }
-
   @media only screen and (max-width: 1200px) {
     flex-direction: column;
     align-items: center;
-    margin: 30px 60px;
+    margin: 1.875rem 3.75rem;
   }
-
-  // @media only screen and (max-width: 800px) {
-  // }
 }
