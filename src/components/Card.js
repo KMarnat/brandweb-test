@@ -10,8 +10,8 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
 
   return (
     <article className="card" onClick={() => handleGameClick(id)}>
+      <div className="card__shadow"></div>
       <div className="adaptive">
-        <div className="card__shadow"></div>
         <div className="adaptive-photo">
           <img src={poster} alt="game poster" className="card__poster" />
         </div>
