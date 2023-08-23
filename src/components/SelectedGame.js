@@ -29,12 +29,12 @@ export function SelectedGame({
         <SkeletonSelect />
       ) : (
         <>
-          <div className="selected__left">
+          <div className="selected__overview">
             <img src={selectedImg} className="cover" alt="game poster" />
             <h1>{selectedName}</h1>
             <div className="detail">
               <h2>About</h2>
-              <p className="about">
+              <p className="detail-about">
                 {isExpanded
                   ? englishAbout
                   : englishAbout?.split(' ').slice(0, 30).join(' ') + '...'}
@@ -44,7 +44,7 @@ export function SelectedGame({
               </button>
             </div>
           </div>
-          <div className="selected__right">
+          <div className="selected__detail-grid">
             <GameDetail title="Released" detail={selectedRelease} />
             <GameDetail
               title="Platforms"

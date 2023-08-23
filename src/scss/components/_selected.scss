@@ -15,8 +15,8 @@
     border-image-slice: 1;
   }
 
-  &__left,
-  &__right {
+  &__overview,
+  &__detail-grid {
     width: 35%;
     line-height: 1.2rem;
 
@@ -32,7 +32,7 @@
     }
   }
 
-  &__right {
+  &__detail-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 5rem);

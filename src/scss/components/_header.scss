@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
 
-  &__left {
+  &__actions {
     display: flex;
     align-items: center;
 
@@ -64,25 +64,14 @@
     }
   }
 
-  &__right {
+  &__useractions {
     display: flex;
     flex-direction: row;
     align-items: center;
 
     .user {
-      text-align: right;
-
-      h4 {
-        margin-bottom: 5px;
-      }
-
-      p {
-        color: var(--main-gray);
-      }
-
-      @media only screen and (max-width: 1400px) {
-        display: none;
-      }
+      display: flex;
+      align-items: center;
     }
 
     .profile {
@@ -104,6 +93,22 @@
 
     .bell:hover {
       cursor: pointer;
+    }
+  }
+
+  &__user-info {
+    text-align: right;
+
+    h4 {
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: var(--main-gray);
+    }
+
+    @media only screen and (max-width: 1400px) {
+      display: none;
     }
   }
 

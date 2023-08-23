@@ -14,7 +14,7 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
 
   return (
     <header className="header">
-      <div className="header__left">
+      <div className="header__actions">
         <ArrowButton onClick={handleClearSelectedGame} className={selectedGame && 'active'}>
           &lt;
         </ArrowButton>
@@ -22,17 +22,23 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
 
         <input type="text" placeholder="Search..." onChange={onChange} value={query}></input>
       </div>
-      <div className="header__right">
+      <div className="header__useractions">
         <div className="user">
-          <h4>Neroin</h4>
-          <p>Alexander Juul Jakobsen</p>
+          <div className="header__user-info">
+            <h4>Neroin</h4>
+            <p>Alexander Juul Jakobsen</p>
+          </div>
+          <div className="">
+            <img
+              src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
+              className="profile"
+              alt="profile"
+            />
+          </div>
         </div>
-        <img
-          src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
-          className="profile"
-          alt="profile"
-        />
-        <img src={bell} className="bell" alt="bell notification" />
+        <div className="user__notifications">
+          <img src={bell} className="bell" alt="bell notification" />
+        </div>
       </div>
     </header>
   );
