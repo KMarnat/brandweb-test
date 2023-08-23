@@ -17,6 +17,35 @@ export default function App() {
 
   const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
 
+  const handleFiltering = async (url, tabNumber, filteredCriteria) => {
+    try {
+      setIsLoading(true);
+
+      const storageKey = `filteredGames_${filteredCriteria}`;
+
+      const storedData = localStorage.getItem(storageKey);
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+
+        setGames(parsedData);
+        setActiveTab(tabNumber);
+      } else {
+        const response = await fetch(url);
+        const data = await response.json();
+        // console.log(data.results);
+
+        setGames(data.results);
+        setActiveTab(tabNumber);
+
+        localStorage.setItem(storageKey, JSON.stringify(data.results));
+      }
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(function () {
     const fetchData = async () => {
       try {
@@ -66,6 +95,7 @@ export default function App() {
   useEffect(() => {
     if (selectedGame !== null) {
       fetchGameData(selectedGame);
+      setQuery('');
     }
   }, [selectedGame]);
 
@@ -89,9 +119,15 @@ export default function App() {
 
   // console.log(selectedGameData);
 
+  function resetSite() {
+    setQuery('');
+    setSelectedGame(null);
+    handleFiltering(`https://api.rawg.io/api/games?key=${KEY}`, 1, 'all');
+  }
+
   return (
     <div className="project">
-      <Sidebar />
+      <Sidebar handleReset={resetSite} />
       <div className="main">
         <Header
           query={query}
@@ -123,6 +159,7 @@ export default function App() {
               setActiveTab={setActiveTab}
               isLoading={isLoading}
               setIsLoading={setIsLoading}
+              handleFiltering={handleFiltering}
             />
             {searchedGames.length ? (
               <SearchResults
