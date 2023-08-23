@@ -1,33 +1,12 @@
-export function Filter({ games, setGames, KEY, activeTab, setActiveTab, setIsLoading }) {
-  const handleFiltering = async (url, tabNumber, filteredCriteria) => {
-    try {
-      setIsLoading(true);
-
-      const storageKey = `filteredGames_${filteredCriteria}`;
-
-      const storedData = localStorage.getItem(storageKey);
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-
-        setGames(parsedData);
-        setActiveTab(tabNumber);
-      } else {
-        const response = await fetch(url);
-        const data = await response.json();
-        // console.log(data.results);
-
-        setGames(data.results);
-        setActiveTab(tabNumber);
-
-        localStorage.setItem(storageKey, JSON.stringify(data.results));
-      }
-    } catch (err) {
-      console.log(err.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
+export function Filter({
+  games,
+  setGames,
+  KEY,
+  activeTab,
+  setActiveTab,
+  setIsLoading,
+  handleFiltering,
+}) {
   return (
     <div className="filter">
       <h2>Games</h2>

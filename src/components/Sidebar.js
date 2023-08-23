@@ -9,7 +9,7 @@ import teams from '../assets/teams.svg';
 import tournaments from '../assets/tournaments.svg';
 import { useState } from 'react';
 
-export function Sidebar() {
+export function Sidebar({ handleReset }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   function toggleSidebar() {
@@ -21,7 +21,7 @@ export function Sidebar() {
       <button className="sidebar__toggle" onClick={toggleSidebar}>
         {openSidebar ? '«' : '»'}
       </button>
-      <img src={logo} alt="logo" className="sidebar__logo" />
+      <img src={logo} alt="logo" className="sidebar__logo" onClick={handleReset} />
       <div>
         <div className="sidebar__menu">
           <div className="title">
