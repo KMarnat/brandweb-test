@@ -9,7 +9,7 @@
   }
 
   &__content {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     top: 2%;
     left: 10%;
     border-radius: 50%;
-    box-shadow: #1362d8 0px 22px 70px 25px;
+    box-shadow: #1362d8 0px 2rem 4.5rem 1.5rem;
     z-index: -1;
   }
 
@@ -37,13 +37,13 @@
     padding-bottom: 1rem;
 
     h2 {
-      font-size: 26px;
-      margin-bottom: 5px;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      line-height: 20px;
-      margin: 5px 0;
+      line-height: 1.25rem;
+      margin: 0.4rem 0;
 
       &:nth-of-type(1) {
         color: var(--main-gray);
@@ -80,7 +80,7 @@
         height: 100%;
         object-fit: cover;
         vertical-align: bottom;
-        border-radius: 10px;
+        border-radius: 0.625rem;
       }
     }
   }
