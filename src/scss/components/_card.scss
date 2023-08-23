@@ -34,7 +34,7 @@
   }
 
   .description {
-    padding-bottom: 24px;
+    padding-bottom: 1rem;
 
     h2 {
       font-size: 26px;
@@ -66,11 +66,12 @@
     flex-wrap: wrap;
     z-index: 3;
     position: relative;
+    width: 100%;
+    padding: 0 1rem;
 
     &-photo {
       height: 150px; /*This is what determines the height of your image*/
       flex-grow: 1;
-      margin: 0 1rem;
 
       img {
         max-height: 100%;
@@ -80,7 +81,6 @@
         object-fit: cover;
         vertical-align: bottom;
         border-radius: 10px;
-        aspect-ratio: 2;
       }
     }
   }
