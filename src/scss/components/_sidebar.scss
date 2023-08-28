@@ -16,7 +16,7 @@
     left: -13rem;
   }
 
-  &-logo {
+  &__logo {
     height: 5rem;
 
     &:hover {
@@ -68,23 +68,6 @@
   &__bottom {
     display: flex;
     flex-direction: column;
-
-    &-btn {
-      color: var(--main-white);
-      width: 9rem;
-      height: 2.5rem;
-      border: 2px solid #7000ff;
-      border-radius: 1.5rem;
-      align-self: center;
-      background-color: transparent;
-      margin: 5rem 0 1rem 0;
-    }
-
-    &-socials {
-      width: 7rem;
-      align-self: center;
-      margin-bottom: 2rem;
-    }
   }
 
   &__toggle {
@@ -100,8 +83,25 @@
       display: block;
     }
   }
-}
 
-.active-sidebar {
-  left: 0 !important;
+  &__btn {
+    color: var(--main-white);
+    width: 9rem;
+    height: 2.5rem;
+    border: 2px solid #7000ff;
+    border-radius: 1.5rem;
+    align-self: center;
+    background-color: transparent;
+    margin: 5rem 0 1rem 0;
+  }
+
+  &__socials {
+    width: 7rem;
+    align-self: center;
+    margin-bottom: 2rem;
+  }
+
+  &--active {
+    left: 0 !important;
+  }
 }

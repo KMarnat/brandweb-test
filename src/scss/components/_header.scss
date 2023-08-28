@@ -68,52 +68,52 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
 
-    .user {
-      display: flex;
-      align-items: center;
+  &__user {
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    &-info {
       text-align: right;
 
-      &__info {
-        text-align: right;
+      h4 {
+        margin-bottom: 0.5rem;
+      }
 
-        h4 {
-          margin-bottom: 0.5rem;
-        }
+      p {
+        color: var(--main-gray);
+      }
 
-        p {
-          color: var(--main-gray);
-        }
+      @media only screen and (max-width: 1400px) {
+        display: none;
+      }
+    }
+
+    &-avatar {
+      border-radius: 50%;
+      height: 4rem;
+      width: 4rem;
+      margin: 0 1.5rem;
+      aspect-ratio: 1;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 600px) {
+        height: 3rem;
+        width: 3rem;
+      }
+    }
+
+    &-notifications {
+      img {
+        cursor: pointer;
 
         @media only screen and (max-width: 1400px) {
           display: none;
-        }
-      }
-
-      &-portrait {
-        border-radius: 50%;
-        height: 4rem;
-        width: 4rem;
-        margin: 0 1.5rem;
-        aspect-ratio: 1;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        @media only screen and (max-width: 600px) {
-          height: 3rem;
-          width: 3rem;
-        }
-      }
-
-      &__notifications {
-        &-bell {
-          cursor: pointer;
-
-          @media only screen and (max-width: 1400px) {
-            display: none;
-          }
         }
       }
     }

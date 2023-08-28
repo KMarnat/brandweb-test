@@ -23,20 +23,18 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
         <input type="text" placeholder="Search..." onChange={onChange} value={query}></input>
       </div>
       <div className="header__useractions">
-        <div className="user">
-          <div className="user__info">
+        <div className="header__user">
+          <div className="header__user-info">
             <h4>Neroin</h4>
             <p>Alexander Juul Jakobsen</p>
           </div>
-          <div>
-            <img
-              src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
-              className="user-portrait"
-              alt="portrait"
-            />
-          </div>
+          <img
+            src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
+            className="header__user-avatar"
+            alt="avatar"
+          />
         </div>
-        <div className="user__notifications">
+        <div className="header__user-notifications">
           <img src={bell} className="user__notifications-bell" alt="bell notification" />
         </div>
       </div>
