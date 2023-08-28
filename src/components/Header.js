@@ -2,25 +2,20 @@ import bell from '../assets/bell.svg';
 import { ArrowButton } from './ArrowButton';
 
 export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
-  function onChange(e) {
-    setQuery(e.target.value);
-  }
-
-  function handleClearSelectedGame() {
-    setSelectedGame(null);
-  }
-
-  // console.log(selectedGame);
-
   return (
     <header className="header">
       <div className="header__actions">
-        <ArrowButton onClick={handleClearSelectedGame} className={selectedGame && 'active'}>
+        <ArrowButton onClick={() => setSelectedGame(null)} className={selectedGame && 'active'}>
           &lt;
         </ArrowButton>
         <ArrowButton>&gt;</ArrowButton>
 
-        <input type="text" placeholder="Search..." onChange={onChange} value={query}></input>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+        ></input>
       </div>
       <div className="header__useractions">
         <div className="header__user">
