@@ -4,6 +4,7 @@
   justify-content: center;
   margin: 1.875rem 10.25rem;
   gap: 1.875rem;
+  line-height: 1.2rem;
 
   h1 {
     font-size: 1.7rem;
@@ -14,16 +15,11 @@
     border-image-slice: 1;
   }
 
-  &__left,
-  &__right {
-    width: 30rem;
-    line-height: 1.2rem;
+  &__overview {
+    width: 100%;
 
-    @media only screen and (max-width: 600px) {
-      width: 20rem;
-    }
-    @media only screen and (max-width: 400px) {
-      width: 15rem;
+    &-cover {
+      width: 100%;
     }
   }
 
@@ -33,6 +29,7 @@
     grid-template-rows: repeat(4, 5rem);
     grid-column-gap: 3.75rem;
     grid-row-gap: 3.75rem;
+    width: 100%;
   }
 
   .detail {
@@ -45,11 +42,10 @@
     button {
       color: var(--main-gray);
     }
-  }
 
-  .cover {
-    width: 100%;
-    height: auto;
+    &-about {
+      width: 100%;
+    }
   }
 
   @media only screen and (max-width: 1200px) {

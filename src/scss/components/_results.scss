@@ -16,33 +16,27 @@
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-  }
 
-  @media only screen and (max-width: 1400px) {
-    &__grid {
+    @media only screen and (max-width: 1400px) {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
 
-  @media only screen and (max-width: 1200px) {
-    &__grid {
+    @media only screen and (max-width: 1200px) {
       grid-template-columns: repeat(2, 1fr);
       margin: 1.875rem 0 3.125rem 0;
     }
-  }
 
-  @media only screen and (max-width: 568px) {
-    &__grid {
+    @media only screen and (max-width: 568px) {
       grid-template-columns: repeat(1, 1fr);
       margin: 1.875rem 1.5rem 1.875rem 1.875rem;
     }
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 30px 40px 30px 50px;
+    margin: 2rem 2.5rem 2rem 3.125rem;
   }
 
   @media only screen and (max-width: 400px) {
-    margin: 30px 10px 30px 30px;
+    margin: 2.5rem 1.25rem 2.5rem 2.5rem;
   }
 }

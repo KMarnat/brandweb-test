@@ -30,11 +30,11 @@ export function SelectedGame({
       ) : (
         <>
           <div className="selected__overview">
-            <img src={selectedImg} className="cover" alt="game poster" />
+            <img src={selectedImg} className="selected__overview-cover" alt="game poster" />
             <h1>{selectedName}</h1>
             <div className="detail">
               <h2>About</h2>
-              <p className="detail-about">
+              <p>
                 {isExpanded
                   ? englishAbout
                   : englishAbout?.split(' ').slice(0, 30).join(' ') + '...'}

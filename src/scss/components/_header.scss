@@ -70,24 +70,9 @@
     align-items: center;
 
     .user {
-<<<<<<< HEAD
       display: flex;
       align-items: center;
-=======
       text-align: right;
-
-      h4 {
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        color: var(--main-gray);
-      }
-
-      @media only screen and (max-width: 1400px) {
-        display: none;
-      }
->>>>>>> 9b0fd61ec8fb49c7384dfa325a515077379b7f58
     }
 
     .profile {
@@ -116,7 +101,7 @@
     text-align: right;
 
     h4 {
-      margin-bottom: 5px;
+      margin-bottom: 0.5rem;
     }
 
     p {

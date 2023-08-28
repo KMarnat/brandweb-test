@@ -9,14 +9,14 @@
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 5;
-  transition: left 0.5s ease-in-out;
+  transition: left 0.3s ease-in-out;
 
   @media only screen and (max-width: 1000px) {
     width: 15rem;
     left: -13rem;
   }
 
-  &__logo {
+  &-logo {
     height: 5rem;
 
     &:hover {
@@ -26,11 +26,6 @@
     @media only screen and (max-width: 1000px) {
       height: 3.5rem;
     }
-  }
-
-  &__bottom {
-    display: flex;
-    flex-direction: column;
   }
 
   &__menu {
@@ -59,7 +54,7 @@
       }
     }
 
-    .title {
+    &-title {
       border: 1px solid transparent;
       border-radius: 0 2rem 2rem 0;
       background-color: var(--title-bg);
@@ -70,21 +65,26 @@
     }
   }
 
-  &__btn {
-    color: var(--main-white);
-    width: 9rem;
-    height: 2.5rem;
-    border: 2px solid #7000ff;
-    border-radius: 1.5rem;
-    align-self: center;
-    background-color: transparent;
-    margin: 5rem 0 1rem 0;
-  }
+  &__bottom {
+    display: flex;
+    flex-direction: column;
 
-  &__socials {
-    width: 7rem;
-    align-self: center;
-    margin-bottom: 2rem;
+    &-btn {
+      color: var(--main-white);
+      width: 9rem;
+      height: 2.5rem;
+      border: 2px solid #7000ff;
+      border-radius: 1.5rem;
+      align-self: center;
+      background-color: transparent;
+      margin: 5rem 0 1rem 0;
+    }
+
+    &-socials {
+      width: 7rem;
+      align-self: center;
+      margin-bottom: 2rem;
+    }
   }
 
   &__toggle {

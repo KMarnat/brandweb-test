@@ -21,10 +21,10 @@ export function Sidebar({ handleReset }) {
       <button className="sidebar__toggle" onClick={toggleSidebar}>
         {openSidebar ? '«' : '»'}
       </button>
-      <img src={logo} alt="logo" className="sidebar__logo" onClick={handleReset} />
+      <img src={logo} alt="logo" className="sidebar-logo" onClick={handleReset} />
       <div>
         <div className="sidebar__menu">
-          <div className="title">
+          <div className="sidebar__menu-title">
             <h4>ACTIVITIES</h4>
           </div>
           <ul>
@@ -43,7 +43,7 @@ export function Sidebar({ handleReset }) {
           </ul>
         </div>
         <div className="sidebar__menu">
-          <h4 className="title">OTHER</h4>
+          <h4 className="sidebar__menu-title">OTHER</h4>
           <ul>
             <li>
               <img src={news} alt="challenges icon" />
@@ -65,8 +65,8 @@ export function Sidebar({ handleReset }) {
         </div>
       </div>
       <div className="sidebar__bottom">
-        <button className="sidebar__btn">CREATE</button>
-        <img src={socials} alt="social icons" className="sidebar__socials" />
+        <button className="sidebar__bottom-btn">CREATE</button>
+        <img src={socials} alt="social icons" className="sidebar__bottom-socials" />
       </div>
     </div>
   );
