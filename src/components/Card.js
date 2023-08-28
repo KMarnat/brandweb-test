@@ -4,12 +4,8 @@ import addfavorite from '../assets/addfavorite.svg';
 import repost from '../assets/repost.svg';
 
 export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY }) {
-  function handleGameClick(id) {
-    setSelectedGame(id);
-  }
-
   return (
-    <article className="card" onClick={() => handleGameClick(id)}>
+    <article className="card" onClick={() => setSelectedGame(id)}>
       <div className="card__shadow"></div>
       <div className="adaptive">
         <div className="adaptive-photo">

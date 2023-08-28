@@ -12,13 +12,9 @@ import { useState } from 'react';
 export function Sidebar({ handleReset }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  function toggleSidebar() {
-    setOpenSidebar((openSidebar) => !openSidebar);
-  }
-
   return (
     <aside className={openSidebar ? 'sidebar sidebar--active' : 'sidebar'}>
-      <button className="sidebar__toggle" onClick={toggleSidebar}>
+      <button className="sidebar__toggle" onClick={() => setOpenSidebar(!openSidebar)}>
         {openSidebar ? '«' : '»'}
       </button>
       <img src={logo} alt="logo" className="sidebar__logo" onClick={handleReset} />
