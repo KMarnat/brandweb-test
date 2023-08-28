@@ -1,13 +1,24 @@
 import { Card } from './Card';
 import { SkeletonCard } from './SkeletonCard.js';
 
-export function SearchResults({ games, activeTab, isLoading, setSelectedGame }) {
+export function SearchResults({
+  games,
+  activeTab,
+  isLoading,
+  setSelectedGame,
+  searchedGames,
+  query,
+}) {
   const resultsTitle = ['All games', 'Recent games', 'Most anticipated', 'Top games'];
   const totalSkeletonCards = 20;
 
   return (
     <div className="results">
-      <h4>{resultsTitle[activeTab - 1]}</h4>
+      {searchedGames ? (
+        <h4>Search results for '{query}'</h4>
+      ) : (
+        <h4>{resultsTitle[activeTab - 1]}</h4>
+      )}
       <div className="results__grid">
         {isLoading
           ? Array.from({ length: totalSkeletonCards }).map((_, i) => <SkeletonCard key={i} />)

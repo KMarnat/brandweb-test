@@ -1,12 +1,4 @@
-export function Filter({
-  games,
-  setGames,
-  KEY,
-  activeTab,
-  setActiveTab,
-  setIsLoading,
-  handleFiltering,
-}) {
+export function Filter({ KEY, activeTab, handleFiltering }) {
   return (
     <div className="filter">
       <h2>Games</h2>

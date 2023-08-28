@@ -22,8 +22,8 @@ export default function App() {
       setIsLoading(true);
 
       //fetch(url)
-      // update local storage so the data would get out of date
-
+      // update local storage so the data wouldnt get out of date
+      setQuery('');
       const storageKey = `filteredGames_${filteredCriteria}`;
 
       const storedData = localStorage.getItem(storageKey);
@@ -154,22 +154,26 @@ export default function App() {
           />
         ) : (
           <>
-            <Filter
-              KEY={KEY}
-              games={games}
-              setGames={setGames}
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              handleFiltering={handleFiltering}
-            />
+            {!searchedGames.length && (
+              <Filter
+                KEY={KEY}
+                games={games}
+                setGames={setGames}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                handleFiltering={handleFiltering}
+              />
+            )}
             {searchedGames.length ? (
               <SearchResults
                 games={searchedGames}
                 activeTab={activeTab}
                 isLoading={isLoading}
                 setSelectedGame={setSelectedGame}
+                searchedGames={searchedGames}
+                query={query}
                 KEY={KEY}
               />
             ) : (
