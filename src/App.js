@@ -21,6 +21,9 @@ export default function App() {
     try {
       setIsLoading(true);
 
+      //fetch(url)
+      // update local storage so the data would get out of date
+
       const storageKey = `filteredGames_${filteredCriteria}`;
 
       const storedData = localStorage.getItem(storageKey);

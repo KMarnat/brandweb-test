@@ -17,7 +17,7 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
         </div>
       </div>
       <div className="card__content">
-        <div className="description">
+        <div className="card__description">
           {/* <h2>{name.length < 20 ? name : `${name.substring(0, 20)}...`}</h2> */}
           <h2>{name}</h2>
           <p>
@@ -29,7 +29,7 @@ export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY
             ))}
           </p>
         </div>
-        <div className="icons">
+        <div className="card__icons">
           <img src={participate} alt="crosshair icon" />
           <img src={addfriend} alt="add friend icon" />
           <img src={addfavorite} alt="add favorite icon" />
