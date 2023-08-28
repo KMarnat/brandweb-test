@@ -33,7 +33,7 @@
     z-index: -1;
   }
 
-  .description {
+  &__description {
     padding-bottom: 1rem;
 
     h2 {
@@ -51,7 +51,7 @@
     }
   }
 
-  .icons {
+  &__icons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

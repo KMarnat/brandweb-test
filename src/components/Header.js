@@ -24,20 +24,20 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
       </div>
       <div className="header__useractions">
         <div className="user">
-          <div className="header__user-info">
+          <div className="user__info">
             <h4>Neroin</h4>
             <p>Alexander Juul Jakobsen</p>
           </div>
-          <div className="">
+          <div>
             <img
               src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
-              className="profile"
-              alt="profile"
+              className="user-portrait"
+              alt="portrait"
             />
           </div>
         </div>
         <div className="user__notifications">
-          <img src={bell} className="bell" alt="bell notification" />
+          <img src={bell} className="user__notifications-bell" alt="bell notification" />
         </div>
       </div>
     </header>
