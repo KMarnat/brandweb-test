@@ -7,9 +7,9 @@ export function Metacritic({ selectedMetacritic }) {
       <span
         className={classnames({
           metacritic: true,
-          high: selectedMetacritic >= 66,
-          mid: selectedMetacritic < 66,
-          low: selectedMetacritic < 33,
+          'metacritic--high': selectedMetacritic >= 66,
+          'metacritic--mid': selectedMetacritic < 66,
+          'metacritic--low': selectedMetacritic < 33,
         })}
       >
         {selectedMetacritic}

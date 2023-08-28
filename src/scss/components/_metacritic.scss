@@ -4,17 +4,18 @@
   border: 0.125rem solid;
   display: inline-flex;
   align-items: center;
-  &.high {
+
+  &--high {
     color: rgb(7, 192, 7);
     border-color: rgb(7, 192, 7);
   }
 
-  &.mid {
+  &--mid {
     color: rgb(240, 240, 4);
     border-color: rgb(240, 240, 4);
   }
 
-  &.low {
+  &--low {
     color: rgb(230, 2, 2);
     border-color: rgb(230, 2, 2);
   }
