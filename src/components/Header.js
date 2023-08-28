@@ -11,7 +11,7 @@ export function Header({ query, setQuery, setSelectedGame, selectedGame }) {
         <ArrowButton>&gt;</ArrowButton>
 
         <input
-          type="text"
+          type="search"
           placeholder="Search..."
           onChange={(e) => setQuery(e.target.value)}
           value={query}
