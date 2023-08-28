@@ -129,15 +129,15 @@ export default function App() {
   }
 
   return (
-    <div className="project">
+    <>
       <Sidebar handleReset={resetSite} />
-      <div className="main">
-        <Header
-          query={query}
-          setQuery={setQuery}
-          setSelectedGame={setSelectedGame}
-          selectedGame={selectedGame}
-        />
+      <Header
+        query={query}
+        setQuery={setQuery}
+        setSelectedGame={setSelectedGame}
+        selectedGame={selectedGame}
+      />
+      <main className="main">
         {selectedGame ? (
           <SelectedGame
             selectedName={selectedGameData.name}
@@ -183,7 +183,7 @@ export default function App() {
             )}
           </>
         )}
-      </div>
-    </div>
+      </main>
+    </>
   );
 }

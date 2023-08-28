@@ -17,7 +17,7 @@ export function Sidebar({ handleReset }) {
   }
 
   return (
-    <div className={openSidebar ? 'sidebar sidebar--active' : 'sidebar'}>
+    <aside className={openSidebar ? 'sidebar sidebar--active' : 'sidebar'}>
       <button className="sidebar__toggle" onClick={toggleSidebar}>
         {openSidebar ? '«' : '»'}
       </button>
@@ -68,6 +68,6 @@ export function Sidebar({ handleReset }) {
         <button className="sidebar__btn">CREATE</button>
         <img src={socials} alt="social icons" className="sidebar__socials" />
       </div>
-    </div>
+    </aside>
   );
 }
