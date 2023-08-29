@@ -17,26 +17,49 @@ export default function App() {
 
   const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
 
+  // Updates local storage after every button press, not using if statement
+  // const handleFiltering = async (url, tabNumber, filteredCriteria) => {
+  //   try {
+  //     setIsLoading(true);
+  //     setQuery('');
+
+  //     const storageKey = `filteredGames_${filteredCriteria}`;
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+
+  //     setGames(data.results);
+  //     setActiveTab(tabNumber);
+
+  //     localStorage.setItem(storageKey, JSON.stringify(data.results));
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  /* If there is data in local storage, that data is displayed, after that a fetch function will run that will update the local storage (fetchAndUpdateLocalStorage(url, storageKey)), if no data is in local storage the else block will run, data is fetched and that is displayed and saved into local storage*/
   const handleFiltering = async (url, tabNumber, filteredCriteria) => {
     try {
       setIsLoading(true);
 
-      //fetch(url)
-      // update local storage so the data wouldnt get out of date
-      setQuery('');
       const storageKey = `filteredGames_${filteredCriteria}`;
-
       const storedData = localStorage.getItem(storageKey);
+
       if (storedData) {
         const parsedData = JSON.parse(storedData);
 
+        setQuery('');
         setGames(parsedData);
         setActiveTab(tabNumber);
+
+        // Background fetch and update local storage
+        fetchAndUpdateLocalStorage(url, storageKey);
       } else {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data.results);
 
+        setQuery('');
         setGames(data.results);
         setActiveTab(tabNumber);
 
@@ -49,6 +72,18 @@ export default function App() {
     }
   };
 
+  // Fetches games and stores them in local storage
+  const fetchAndUpdateLocalStorage = async (url, storageKey) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      localStorage.setItem(storageKey, JSON.stringify(data.results));
+    } catch (err) {
+      console.log('Background fetch error: ' + err.message);
+    }
+  };
+
+  // First load of the site, fetching the games
   useEffect(function () {
     const fetchData = async () => {
       try {
@@ -67,11 +102,11 @@ export default function App() {
     fetchData();
   }, []);
 
+  // Data fetching when query changes, minimum length of characters is 3
   useEffect(
     function () {
       const fetchData = async () => {
         try {
-          // if (query.length < 3) return;
           setIsLoading(true);
           const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}&search=${query}`);
           if (!res) throw new Error('Error fetching searched data');
@@ -95,6 +130,7 @@ export default function App() {
 
   // console.log(games);
 
+  // When selectedGame state changes, ie a game card is pressed, it runs the fetching of the data.
   useEffect(() => {
     if (selectedGame !== null) {
       fetchGameData(selectedGame);
@@ -102,6 +138,7 @@ export default function App() {
     }
   }, [selectedGame]);
 
+  // Uses selected games ID and fetches it and stores the data inot selectedGameData
   const fetchGameData = async (selectedGame) => {
     try {
       setIsLoading(true);
@@ -122,6 +159,7 @@ export default function App() {
 
   // console.log(selectedGameData);
 
+  // Resets site to the state it is as it first loads
   function resetSite() {
     setQuery('');
     setSelectedGame(null);
