@@ -14,7 +14,6 @@ export function Card({ name, poster, genres, id, setSelectedGame }) {
       </div>
       <div className="card__content">
         <div className="card__description">
-          {/* <h2>{name.length < 20 ? name : `${name.substring(0, 20)}...`}</h2> */}
           <h2>{name}</h2>
           <p>
             {genres.map((genre, i) => (
