@@ -1,3 +1,5 @@
+/* Resulsts component
+-------------------*/
 .results {
   margin: 1.875rem 5rem;
   display: flex;
@@ -32,6 +34,7 @@
     }
   }
 
+  // Reducing padding when screen si smaller
   @media #{$breakpoint-mobile-landscape} {
     margin: 2rem 2.5rem 2rem 3.125rem;
   }

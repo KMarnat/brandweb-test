@@ -1,3 +1,5 @@
+/* Header component
+-----------------*/
 .header {
   padding: 2.5rem 5rem;
   display: flex;
@@ -7,21 +9,25 @@
   justify-content: space-between;
   align-items: center;
 
+  // Actions on the left side of the header - buttons and search
   &__actions {
     display: flex;
     align-items: center;
   }
 
   button {
-    color: var(--main-gray);
-    background-color: transparent;
+    // Layout
     height: 2.375rem;
     width: 2.375rem;
     border-radius: 50%;
+    background-color: transparent;
     border: 1px solid var(--main-gray);
-    font-size: 1.9rem;
     margin-right: 1rem;
     padding-bottom: 0.5rem;
+
+    // Typography
+    color: var(--main-gray);
+    font-size: 1.9rem;
 
     &:hover {
       color: var(--main-white);
@@ -36,6 +42,7 @@
     }
   }
 
+  // Search bar
   input {
     width: 20rem;
     height: 2.5rem;
@@ -59,12 +66,14 @@
     }
   }
 
+  // Right side of the header
   &__useractions {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
+  // Name and profile image
   &__user {
     display: flex;
     align-items: center;

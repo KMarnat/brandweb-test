@@ -1,3 +1,5 @@
+/* Selected game
+------------------------------*/
 .selected {
   display: flex;
   flex-direction: row;
@@ -15,6 +17,7 @@
     border-image-slice: 1;
   }
 
+  // Styles for box that contains selected game image
   &__overview {
     width: 100%;
 

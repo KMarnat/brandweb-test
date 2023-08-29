@@ -1,8 +1,7 @@
+/* Card component
+--------------------*/
 .card {
   position: relative;
-  // display: flex;
-  flex-direction: column;
-  // align-items: center;
 
   &:hover {
     cursor: pointer;
@@ -22,6 +21,7 @@
     width: 100%;
   }
 
+  // Blue shadow behind every card, top left
   &__shadow {
     position: absolute;
     height: 1px;
