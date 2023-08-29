@@ -10,11 +10,6 @@
   &__actions {
     display: flex;
     align-items: center;
-
-    @media only screen and (max-width: 600px) {
-      // flex-direction: column;
-      align-items: center;
-    }
   }
 
   button {
@@ -32,7 +27,7 @@
       color: var(--main-white);
     }
 
-    @media only screen and (max-width: 600px) {
+    @media #{$breakpoint-mobile-landscape} {
       height: 2rem;
       width: 2rem;
       display: flex;
@@ -50,16 +45,16 @@
     border: 1px solid var(--main-gray);
     margin: 0 1rem;
 
-    @media only screen and (max-width: 1200px) {
+    @media #{$breakpoint-xlarge} {
       width: 15rem;
     }
-    @media only screen and (max-width: 1000px) {
+    @media #{$breakpoint-large} {
       width: 10rem;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media #{$breakpoint-mobile-landscape} {
       margin: 0;
-      width: 5rem;
+      width: 7rem;
       padding-left: 0.8rem;
     }
   }
@@ -86,7 +81,7 @@
         color: var(--main-gray);
       }
 
-      @media only screen and (max-width: 1400px) {
+      @media #{$breakpoint-xxlarge} {
         display: none;
       }
     }
@@ -102,7 +97,7 @@
         cursor: pointer;
       }
 
-      @media only screen and (max-width: 600px) {
+      @media #{$breakpoint-mobile-landscape} {
         height: 3rem;
         width: 3rem;
       }
@@ -112,7 +107,7 @@
       img {
         cursor: pointer;
 
-        @media only screen and (max-width: 1400px) {
+        @media #{$breakpoint-xxlarge} {
           display: none;
         }
       }
@@ -123,11 +118,11 @@
     color: var(--main-white);
   }
 
-  @media only screen and (max-width: 600px) {
+  @media #{$breakpoint-mobile-landscape} {
     padding: 1.5rem 2.5rem 1.5rem 3.125rem;
   }
 
-  @media only screen and (max-width: 400px) {
+  @media #{$breakpoint-mobile-portrait} {
     padding: 1.5rem 0.625rem 1.5rem 2.5rem;
   }
 }

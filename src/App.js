@@ -94,7 +94,6 @@ export default function App() {
       if (!res) throw new Error('Error fetching game data');
 
       const newData = await res.json();
-      console.log(newData);
       setSelectedGameData({ ...newData });
     } catch (err) {
       console.error(err.message);

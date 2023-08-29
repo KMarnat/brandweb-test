@@ -10,17 +10,17 @@
     display: flex;
     flex-direction: row;
 
-    @media only screen and (max-width: 600px) {
+    @media #{$breakpoint-mobile-landscape} {
       flex-direction: column;
       align-items: flex-start;
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media #{$breakpoint-mobile-landscape} {
     margin: 0 2.5rem 0 3.125rem;
   }
 
-  @media only screen and (max-width: 400px) {
+  @media #{$breakpoint-mobile-portrait} {
     margin: 0 1.25rem 0 2.5rem;
   }
 }

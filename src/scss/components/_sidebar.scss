@@ -11,7 +11,7 @@
   z-index: 5;
   transition: left 0.3s ease-in-out;
 
-  @media only screen and (max-width: 1000px) {
+  @media #{$breakpoint-large} {
     width: 15rem;
     left: -13rem;
   }
@@ -23,7 +23,7 @@
       cursor: pointer;
     }
 
-    @media only screen and (max-width: 1000px) {
+    @media #{$breakpoint-large} {
       height: 3.5rem;
     }
   }
@@ -79,7 +79,7 @@
     height: 3.5rem;
     z-index: 6;
 
-    @media only screen and (max-width: 1000px) {
+    @media #{$breakpoint-large} {
       display: block;
     }
   }
