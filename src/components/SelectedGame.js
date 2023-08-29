@@ -14,6 +14,7 @@ export function SelectedGame({
   selectedPlatforms,
   selectedGenres,
   selectedMetacritic,
+  selectedGame,
   isLoading,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -22,6 +23,8 @@ export function SelectedGame({
   function toggleExpanded() {
     setIsExpanded((isExpanded) => !isExpanded);
   }
+
+  localStorage.setItem('Game_ID', selectedGame);
 
   return (
     <article className="selected">
