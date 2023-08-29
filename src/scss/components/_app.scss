@@ -8,13 +8,37 @@
   --card-bg: #202134;
 }
 
+// Very small devices (portrait phones, 320px and down)
+$breakpoint-mobile-xs: '(max-width: 20em)';
+
+// Small devices (portrait phones, 428px and down)
+$breakpoint-mobile-portrait: '(max-width: 26.75em)';
+
+// Small devices (landscape phones, 576px and down)
+$breakpoint-mobile-landscape: '(max-width: 36em)';
+
+// Medium devices (portrait tablets, 768px and down)
+$breakpoint-tablet-portrait: '(max-width: 48em)';
+
+// Medium devices (landscape tablets, 1024px and down)
+$breakpoint-tablet-landscape: '(max-width: 63.99em)';
+
+// Large devices (desktops, 992px and down)
+$breakpoint-large: '(max-width: 62em)';
+
+// Extra large devices (desktops, 1200px and down)
+$breakpoint-xlarge: '(max-width: 74.99em)';
+
+// Extra large devices (large desktops, 1400px and down)
+$breakpoint-xxlarge: '(max-width: 87.5em)';
+
 body {
   color: var(--main-white);
   font-family: var(--main-font);
   background-color: var(--bg-color);
   margin-left: 17rem;
 
-  @media only screen and (max-width: 1000px) {
+  @media #{$breakpoint-large} {
     margin-left: 0;
   }
 }
