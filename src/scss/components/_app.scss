@@ -1,13 +1,16 @@
+// Root variables
 :root {
-  --main-white: #f1f5ff;
-  --title-bg: #afafaf10;
-  --bg-color: #0c0d21;
-  --main-gray: #5e6271;
-  --btn-bg: #090a1c;
+  --main-white: #f1f5ff; // Main color of texts
+  --title-bg: #afafaf10; // Background for the titles in the sidemenu
+  --bg-color: #0c0d21; // Main background color
+  --main-gray: #5e6271; // Non-highlighted text color
+  --btn-bg: #090a1c; // Button background
+  --card-bg: #202134; // Card background color
   --main-font: 'Titillium Web', sans-serif;
-  --card-bg: #202134;
 }
 
+/* Global media query variables
+--------------------------------*/
 // Very small devices (portrait phones, 320px and down)
 $breakpoint-mobile-xs: '(max-width: 20em)';
 

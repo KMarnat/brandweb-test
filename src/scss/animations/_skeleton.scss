@@ -1,3 +1,5 @@
+/* = Skeleton styling for card and selected game loading effect
+-------------------------------------------------------------*/
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
 
@@ -14,16 +16,22 @@
   }
 
   &-title {
+    // Layout
     width: 100%;
     height: auto;
-    color: transparent;
     padding: 0.5rem;
-    border: none !important;
+
+    // Typography
+    color: transparent;
+    border: none !important; // Needs "!importand" to get rid of the line under title during loading
   }
 
   &-text {
+    // Layout
     width: 100%;
     height: auto;
+
+    // Typography
     color: transparent;
   }
 
@@ -45,6 +53,8 @@
   }
 }
 
+/* Loading animation keyframes
+----------------------------*/
 @keyframes skeleton-loading {
   0% {
     background-color: #808080;

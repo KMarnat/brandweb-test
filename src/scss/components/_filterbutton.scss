@@ -1,9 +1,12 @@
+/*Filter button component
+---------*/
 .filter__btn {
   margin: 1.25rem 1.25rem 0 0;
   padding: 0.625rem 1.25rem;
   border-radius: 0.625rem;
   font-weight: 600;
 
+  // Styles for button that has been clicked on
   &--active {
     background-color: var(--title-bg);
   }
