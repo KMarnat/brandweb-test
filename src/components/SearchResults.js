@@ -6,6 +6,7 @@ export function SearchResults({
   activeTab,
   isLoading,
   setSelectedGame,
+  selectedGame,
   searchedGames,
   query,
 }) {
@@ -28,7 +29,6 @@ export function SearchResults({
                 name={game.name}
                 poster={game.background_image}
                 genres={game.genres}
-                isLoading={isLoading}
                 id={game.id}
                 setSelectedGame={setSelectedGame}
               />

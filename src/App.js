@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { SearchResults } from './components/SearchResults';
 import { SelectedGame } from './components/SelectedGame';
+import { fetchData, fetchSearchData } from './utils/shared';
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -12,31 +13,10 @@ export default function App() {
   const [activeTab, setActiveTab] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [selectedGame, setSelectedGame] = useState(null);
+  const [selectedGame, setSelectedGame] = useState(localStorage.getItem('Game_ID') || null);
   const [selectedGameData, setSelectedGameData] = useState({});
 
   const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
-
-  // Updates local storage after every button press, not using if statement
-  // const handleFiltering = async (url, tabNumber, filteredCriteria) => {
-  //   try {
-  //     setIsLoading(true);
-  //     setQuery('');
-
-  //     const storageKey = `filteredGames_${filteredCriteria}`;
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-
-  //     setGames(data.results);
-  //     setActiveTab(tabNumber);
-
-  //     localStorage.setItem(storageKey, JSON.stringify(data.results));
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   /* If there is data in local storage, that data is displayed, after that a fetch function will run that will update the local storage (fetchAndUpdateLocalStorage(url, storageKey)), if no data is in local storage the else block will run, data is fetched and that is displayed and saved into local storage*/
   const handleFiltering = async (url, tabNumber, filteredCriteria) => {
@@ -85,55 +65,20 @@ export default function App() {
 
   // First load of the site, fetching the games
   useEffect(function () {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}`);
-        if (!res) throw new Error('Error fetchin data');
-
-        const newData = await res.json();
-        setGames(newData.results);
-      } catch (err) {
-        console.error(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchData();
+    fetchData(setIsLoading, setGames, KEY);
   }, []);
 
   // Data fetching when query changes, minimum length of characters is 3
-  useEffect(
-    function () {
-      const fetchData = async () => {
-        try {
-          setIsLoading(true);
-          const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}&search=${query}`);
-          if (!res) throw new Error('Error fetching searched data');
-
-          const newData = await res.json();
-          setSearchedGames(newData.results);
-        } catch (err) {
-          console.error(err.message);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      if (query.length < 3) {
-        setSearchedGames([]);
-        return;
-      }
-      fetchData();
-    },
-    [query]
-  );
+  useEffect(() => {
+    fetchSearchData(setIsLoading, setSearchedGames, KEY, query);
+  }, [query]);
 
   // console.log(games);
 
   // When selectedGame state changes, ie a game card is pressed, it runs the fetching of the data.
   useEffect(() => {
-    if (selectedGame !== null) {
-      fetchGameData(selectedGame);
+    if (selectedGame !== null || localStorage.getItem('Game_ID')) {
+      fetchGameData(localStorage.getItem('Game_ID') || selectedGame);
       setQuery('');
     }
   }, [selectedGame]);
@@ -149,6 +94,7 @@ export default function App() {
       if (!res) throw new Error('Error fetching game data');
 
       const newData = await res.json();
+      console.log(newData);
       setSelectedGameData({ ...newData });
     } catch (err) {
       console.error(err.message);
@@ -160,11 +106,12 @@ export default function App() {
   // console.log(selectedGameData);
 
   // Resets site to the state it is as it first loads
-  function resetSite() {
+  const resetSite = () => {
     setQuery('');
     setSelectedGame(null);
     handleFiltering(`https://api.rawg.io/api/games?key=${KEY}`, 1, 'all');
-  }
+    localStorage.removeItem('Game_ID', selectedGame);
+  };
 
   return (
     <>
@@ -174,6 +121,7 @@ export default function App() {
         setQuery={setQuery}
         setSelectedGame={setSelectedGame}
         selectedGame={selectedGame}
+        handleReset={resetSite}
       />
       <main className="main">
         {selectedGame ? (
@@ -188,6 +136,7 @@ export default function App() {
             selectedPublishers={selectedGameData.publishers}
             selectedGenres={selectedGameData.genres}
             selectedMetacritic={selectedGameData.metacritic}
+            selectedGame={selectedGame}
             isLoading={isLoading}
           />
         ) : (
@@ -210,6 +159,7 @@ export default function App() {
                 activeTab={activeTab}
                 isLoading={isLoading}
                 setSelectedGame={setSelectedGame}
+                selectedGame={selectedGame}
                 searchedGames={searchedGames}
                 query={query}
                 KEY={KEY}
@@ -221,6 +171,7 @@ export default function App() {
                 isLoading={isLoading}
                 KEY={KEY}
                 setSelectedGame={setSelectedGame}
+                selectedGame={selectedGame}
               />
             )}
           </>

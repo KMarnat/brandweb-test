@@ -3,7 +3,7 @@ import addfriend from '../assets/addfriend.svg';
 import addfavorite from '../assets/addfavorite.svg';
 import repost from '../assets/repost.svg';
 
-export function Card({ name, poster, genres, isLoading, id, setSelectedGame, KEY }) {
+export function Card({ name, poster, genres, id, setSelectedGame }) {
   return (
     <article className="card" onClick={() => setSelectedGame(id)}>
       <div className="card__shadow"></div>
