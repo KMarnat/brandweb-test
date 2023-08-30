@@ -5,6 +5,7 @@ import { Sidebar } from './components/Sidebar';
 import { SearchResults } from './components/SearchResults';
 import { SelectedGame } from './components/SelectedGame';
 import { fetchData, fetchSearchData } from './utils/shared';
+import ProfilePage from './components/ProfilePage';
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -123,7 +124,7 @@ export default function App() {
         handleReset={resetSite}
       />
       <main className="main">
-        {selectedGame ? (
+        {/* {selectedGame ? (
           <SelectedGame
             selectedName={selectedGameData.name}
             selectedImg={selectedGameData.background_image}
@@ -174,7 +175,8 @@ export default function App() {
               />
             )}
           </>
-        )}
+        )} */}
+        <ProfilePage />
       </main>
     </>
   );

@@ -1,0 +1,72 @@
+/* Profile card component
+----------------*/
+.profilecard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &--border {
+    height: 14rem;
+    width: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(#7800c6, #7000ff);
+    border-radius: 50%;
+  }
+
+  &__image {
+    // border: 0.5rem solid var(--purp-hl);
+    border-radius: 50%;
+    height: 13rem;
+  }
+
+  &__menu {
+    position: absolute;
+    inset: 0 0 0 auto;
+    margin: 1rem;
+  }
+
+  &__details {
+    margin-bottom: 2rem;
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__content {
+    // height: ;
+    background-color: var(--card-bg);
+    position: relative;
+    padding: 8rem 1rem 2rem;
+    top: -7rem;
+    z-index: -1;
+    text-align: center;
+    border-radius: 0.625rem;
+  }
+
+  &__numbers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  &__counter {
+    padding: 0 1.2rem;
+    border-right: 1px solid #383838;
+  }
+
+  &__counter:last-of-type {
+    border-right: none;
+  }
+}

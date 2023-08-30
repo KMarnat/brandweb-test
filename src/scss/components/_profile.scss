@@ -1,0 +1,10 @@
+/* Profile page component
+-----------------------*/
+.profile {
+  display: grid;
+  grid-template-columns: 3fr 8fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0 30px;
+  grid-auto-flow: row;
+  margin: 1rem 5rem;
+}
