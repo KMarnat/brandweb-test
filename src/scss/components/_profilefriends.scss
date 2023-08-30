@@ -1,0 +1,16 @@
+/* ProfileFriends component
+-------------------------*/
+.friends {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding-top: 0.5rem;
+  border-radius: 0.625rem;
+  align-self: start;
+  margin-top: 7rem;
+
+  & > div {
+    margin-bottom: 0.5rem;
+  }
+}
