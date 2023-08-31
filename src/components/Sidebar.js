@@ -8,16 +8,18 @@ import partners from '../assets/partners.svg';
 import teams from '../assets/teams.svg';
 import tournaments from '../assets/tournaments.svg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export function Sidebar({ handleReset }) {
+export function Sidebar({}) {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <aside className={openSidebar ? 'sidebar sidebar--active' : 'sidebar'}>
       <button className="sidebar__toggle" onClick={() => setOpenSidebar(!openSidebar)}>
         {openSidebar ? '«' : '»'}
       </button>
-      <img src={logo} alt="logo" className="sidebar__logo" onClick={handleReset} />
+      <img src={logo} alt="logo" className="sidebar__logo" onClick={() => navigate('/')} />
       <div>
         <div className="sidebar__menu">
           <div className="sidebar__menu-title">
