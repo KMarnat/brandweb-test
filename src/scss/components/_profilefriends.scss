@@ -5,10 +5,13 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--card-bg);
-  padding-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 0.625rem;
   align-self: start;
-  margin-top: 7rem;
+
+  @media #{$breakpoint-xxlarge} {
+    display: none;
+  }
 
   & > div {
     margin-bottom: 0.5rem;

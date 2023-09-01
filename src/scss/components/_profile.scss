@@ -3,8 +3,27 @@
 .profile {
   display: grid;
   grid-template-columns: 3fr 8fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0 30px;
+  gap: 30px 30px;
   grid-auto-flow: row;
-  margin: 1rem 5rem;
+
+  margin: 7rem 5rem;
+
+  @media #{$breakpoint-xxlarge} {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  @media #{$breakpoint-xlarge} {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  @media #{$breakpoint-large} {
+    margin: 10rem 5rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+.status-online {
+}
+
+.status-offline {
 }
