@@ -1,33 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
-
 import { SelectedGame } from './components/SelectedGame';
-
 import { Outlet } from 'react-router-dom';
+import { getDocs, addDoc, collection } from 'firebase/firestore';
+import { db } from './services/firebase.config';
 
 export default function App() {
   const [query, setQuery] = useState('');
-  const [games, setGames] = useState([]);
-  const [searchedGames, setSearchedGames] = useState([]);
-  const [activeTab, setActiveTab] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [activeProfile, setActiveProfile] = useState(false);
 
   const [selectedGame, setSelectedGame] = useState(localStorage.getItem('Game_ID') || null);
-  const [selectedGameData, setSelectedGameData] = useState({});
 
-  // console.log(games);
+  // useEffect(() => {
+  //   // Function to add data to Firestore
+  //   const addDataToFirestore = async () => {
+  //     try {
+  //       const citiesCollection = collection(db, 'cities');
 
-  // console.log(selectedGameData);
+  //       // Add data to Firestore
+  //       await addDoc(citiesCollection, {
+  //         name: 'New York City',
+  //         country: 'USA',
+  //       });
+  //       await addDoc(citiesCollection, {
+  //         name: 'Paris',
+  //         country: 'France',
+  //       });
+  //       await addDoc(citiesCollection, {
+  //         name: 'Tokyo',
+  //         country: 'Japan',
+  //       });
 
-  // Resets site to the state it is as it first loads
-  // const resetSite = () => {
-  //   setQuery('');
-  //   setSelectedGame(null);
-  //   handleFiltering(`https://api.rawg.io/api/games?key=${KEY}`, 1, 'all');
-  //   localStorage.removeItem('Game_ID', selectedGame);
-  // };
+  //       // Fetch data from Firestore
+  //       const citiesSnapshot = await getDocs(citiesCollection);
+
+  //       citiesSnapshot.forEach((doc) => {
+  //         console.log('City Data:', doc.id, doc.data());
+  //       });
+  //     } catch (error) {
+  //       console.error('Error:', error);
+  //     }
+  //   };
+
+  //   // Call the function to add and retrieve data
+  //   addDataToFirestore();
+  // }, []);
 
   return (
     <>
@@ -40,24 +57,6 @@ export default function App() {
       />
       <main className="main">
         <Outlet />
-        {selectedGame ? (
-          <SelectedGame
-            selectedName={selectedGameData.name}
-            selectedImg={selectedGameData.background_image}
-            selectedDevs={selectedGameData.developers}
-            selectedDesc={selectedGameData.description_raw}
-            selectedRelease={selectedGameData.released}
-            selectedRating={selectedGameData.rating}
-            selectedPlatforms={selectedGameData.platforms}
-            selectedPublishers={selectedGameData.publishers}
-            selectedGenres={selectedGameData.genres}
-            selectedMetacritic={selectedGameData.metacritic}
-            selectedGame={selectedGame}
-            isLoading={isLoading}
-          />
-        ) : (
-          <></>
-        )}
       </main>
     </>
   );

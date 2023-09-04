@@ -7,6 +7,7 @@ import ProfilePage from './components/ProfilePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { SearchResults } from './components/SearchResults';
 import { SelectedGame } from './components/SelectedGame';
+import Login from './components/Login';
 
 const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/selected/:gameId',
         element: <SelectedGame />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
       },
     ],
   },

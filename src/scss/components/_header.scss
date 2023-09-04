@@ -15,7 +15,7 @@
     align-items: center;
   }
 
-  button {
+  .arrow-btn {
     // Layout
     height: 2.375rem;
     width: 2.375rem;
@@ -71,6 +71,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    .login,
+    .register {
+      color: var(--main-white);
+      width: 7rem;
+      height: 2.5rem;
+      border: 2px solid var(--purp-hl);
+      border-radius: 1.5rem;
+      align-self: center;
+      background-color: transparent;
+      margin: 0 0.4rem;
+    }
   }
 
   // Name and profile image

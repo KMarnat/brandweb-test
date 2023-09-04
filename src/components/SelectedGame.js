@@ -3,18 +3,7 @@ import { GameDetail } from './GameDetail';
 import { Metacritic } from './Metacritic';
 import { SkeletonSelect } from './SkeletonSelect';
 
-export function SelectedGame({
-  selectedName,
-  selectedImg,
-  selectedDevs,
-  selectedDesc,
-  selectedRelease,
-  selectedRating,
-  selectedPublishers,
-  selectedPlatforms,
-  selectedGenres,
-  selectedMetacritic,
-}) {
+export function SelectedGame() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedGame, setSelectedGame] = useState(window.location.pathname.split('selected/')[1]);
   const [query, setQuery] = useState(window.location.search);
@@ -39,7 +28,7 @@ export function SelectedGame({
     }
   }, [selectedGame]);
 
-  // Uses selected games ID and fetches it and stores the data inot selectedGameData
+  // Uses selected games ID and fetches it and stores the data into selectedGameData
   const fetchGameData = async (selectedGame) => {
     try {
       setIsLoading(true);

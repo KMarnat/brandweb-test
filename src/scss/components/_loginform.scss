@@ -1,0 +1,39 @@
+/* Login form component
+----------------------*/
+.login-form {
+  display: flex;
+
+  justify-content: center;
+  // align-items: center;
+  margin: 5rem 3rem;
+
+  input {
+    width: 10rem;
+    margin-bottom: 2rem;
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    padding: 0 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--main-gray);
+  }
+
+  button {
+    color: var(--main-white);
+    width: 7rem;
+    height: 2.5rem;
+    border: 2px solid var(--purp-hl);
+    border-radius: 1.5rem;
+    align-self: center;
+    background-color: transparent;
+    margin: 0 0.4rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 0.625rem;
+  }
+}
