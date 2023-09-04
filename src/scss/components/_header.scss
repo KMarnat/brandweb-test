@@ -106,6 +106,9 @@
         cursor: pointer;
       }
 
+      @media #{$breakpoint-xxlarge} {
+        margin: 0;
+      }
       @media #{$breakpoint-mobile-landscape} {
         height: 3rem;
         width: 3rem;

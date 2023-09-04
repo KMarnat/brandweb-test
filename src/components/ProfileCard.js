@@ -24,8 +24,6 @@ export default function ProfileCard() {
     };
   }, []);
 
-  console.log(avatarHeight);
-
   return (
     <article className="profilecard">
       <div
