@@ -36,11 +36,10 @@
   padding: 0 1rem 1rem;
 
   @media #{$breakpoint-large} {
-    margin: 0 10rem;
+    margin: 0;
   }
 
   @media #{$breakpoint-tablet-portrait} {
-    margin: 0 7rem;
   }
 
   &__avatar {
@@ -61,11 +60,15 @@
     }
 
     @media #{$breakpoint-large} {
-      padding: 0 5rem;
+      padding: 0 14rem;
     }
 
-    @media #{  $breakpoint-tablet-portrait} {
-      padding: 0 2rem;
+    @media #{$breakpoint-tablet-portrait} {
+      padding: 0 8rem;
+    }
+
+    @media #{$breakpoint-mobile-landscape} {
+      padding: 0 4rem;
     }
 
     div {
@@ -130,6 +133,13 @@
     }
     @media #{$breakpoint-large} {
       display: block;
+    }
+
+    p {
+      @media #{$breakpoint-mobile-portrait} {
+        font-weight: 300;
+        font-size: 1rem;
+      }
     }
   }
 }

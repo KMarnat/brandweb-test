@@ -1,6 +1,12 @@
-export default function UserWithStatus({ source }) {
+export default function UserWithStatus({ source, status }) {
   return (
-    <div className="feed__post-avatar feed__post-avatar--dot">
+    <div
+      className={
+        status
+          ? 'profile__status profile__status--online'
+          : 'profile__status profile__status--offline'
+      }
+    >
       <img src={source} alt="profile avatar" />
     </div>
   );

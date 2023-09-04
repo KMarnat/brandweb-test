@@ -16,6 +16,7 @@ export default function ProfileFeed() {
       <div className="feed__post">
         <UserWithStatus
           source={'https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png'}
+          status={true}
         />
         <div className="feed__inputarea">
           <form className="feed__form">
