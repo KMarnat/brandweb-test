@@ -1,6 +1,6 @@
-export function ArrowButton({ children, onClick }) {
+export function ArrowButton({ children, className, onClick }) {
   return (
-    <button onClick={onClick} className="arrow-btn">
+    <button onClick={onClick} className={className}>
       {children}
     </button>
   );

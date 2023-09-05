@@ -63,7 +63,7 @@ export function Sidebar({}) {
         </div>
       </div>
       <div className="sidebar__bottom">
-        <button className="sidebar__btn">CREATE</button>
+        <button className="sidebar__btn btn-secondary">CREATE</button>
         <img src={socials} alt="social icons" className="sidebar__socials" />
       </div>
     </aside>

@@ -12,32 +12,37 @@ export function Header({ query, setQuery }) {
   return (
     <header className="header">
       <div className="header__actions">
-        <ArrowButton onClick={() => navigate(-1)}>&lt;</ArrowButton>
-        <ArrowButton onClick={() => navigate(+1)}>&gt;</ArrowButton>
+        <ArrowButton onClick={() => navigate(-1)} className={'header__actions-navbtn'}>
+          &lt;
+        </ArrowButton>
+        <ArrowButton onClick={() => navigate(+1)} className={'header__actions-navbtn'}>
+          &gt;
+        </ArrowButton>
 
         <input
           type="search"
           placeholder="Search..."
+          className="header__actions-search"
           onChange={(e) => {
             setQuery(e.target.value);
             navigate(`/search?${e.target.value}`);
           }}
           value={query}
-        ></input>
+        />
       </div>
       <div className="header__useractions">
         {!loggedIn ? (
           <>
             <Link to={'/login'}>
               <button
-                className="login btn-secondary"
+                className="header__btn btn-secondary"
                 // onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
               >
                 Login
               </button>
             </Link>
             <Link to={'/register'}>
-              <button className="register btn-primary">Sign up</button>
+              <button className="header__btn btn-primary">Sign up</button>
             </Link>
           </>
         ) : (

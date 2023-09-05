@@ -13,56 +13,56 @@
   &__actions {
     display: flex;
     align-items: center;
-  }
 
-  .arrow-btn {
-    // Layout
-    height: 2.375rem;
-    width: 2.375rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 1px solid var(--main-gray);
-    margin-right: 1rem;
-    padding-bottom: 0.5rem;
+    &-navbtn {
+      // Layout
+      height: 2.375rem;
+      width: 2.375rem;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid var(--main-gray);
+      margin-right: 1rem;
+      padding-bottom: 0.5rem;
 
-    // Typography
-    color: var(--main-gray);
-    font-size: 1.9rem;
+      // Typography
+      color: var(--main-gray);
+      font-size: 1.9rem;
 
-    &:hover {
-      color: var(--main-white);
+      &:hover {
+        color: var(--main-white);
+      }
+
+      @media #{$breakpoint-mobile-landscape} {
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
-    @media #{$breakpoint-mobile-landscape} {
-      height: 2rem;
-      width: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+    // Search bar
+    &-search {
+      width: 20rem;
+      height: 2.5rem;
+      border-radius: 0.625rem;
+      padding: 0 1.5rem;
+      background-color: transparent;
+      border: 1px solid var(--main-gray);
+      margin: 0 1rem;
 
-  // Search bar
-  input {
-    width: 20rem;
-    height: 2.5rem;
-    border-radius: 0.625rem;
-    padding: 0 1.5rem;
-    background-color: transparent;
-    border: 1px solid var(--main-gray);
-    margin: 0 1rem;
+      @media #{$breakpoint-xlarge} {
+        width: 15rem;
+      }
+      @media #{$breakpoint-large} {
+        width: 10rem;
+      }
 
-    @media #{$breakpoint-xlarge} {
-      width: 15rem;
-    }
-    @media #{$breakpoint-large} {
-      width: 10rem;
-    }
-
-    @media #{$breakpoint-mobile-landscape} {
-      margin: 0;
-      width: 7rem;
-      padding-left: 0.8rem;
+      @media #{$breakpoint-mobile-landscape} {
+        margin: 0;
+        width: 7rem;
+        padding-left: 0.8rem;
+      }
     }
   }
 
@@ -71,18 +71,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    .login,
-    .register {
-      color: var(--main-white);
-      width: 7rem;
-      height: 2.5rem;
-      border: 2px solid var(--purp-hl);
-      border-radius: 1.5rem;
-      align-self: center;
-      background-color: transparent;
-      margin: 0 0.4rem;
-    }
   }
 
   // Name and profile image
@@ -138,8 +126,9 @@
     }
   }
 
-  .active {
-    color: var(--main-white);
+  &__btn {
+    width: 7rem;
+    height: 2.5rem;
   }
 
   @media #{$breakpoint-mobile-landscape} {
