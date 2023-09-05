@@ -2,8 +2,10 @@ import { Card } from './Card';
 import { SkeletonCard } from './SkeletonCard.js';
 import { fetchData, fetchSearchData } from '../utils/shared';
 import { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Filter } from './Filter';
+import { getDocs, addDoc, collection } from 'firebase/firestore';
+import { db } from '../services/firebase.config';
 
 export function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +23,11 @@ export function SearchResults() {
   // First load of the site, fetching the games
   useEffect(
     function () {
-      setQuery(window.location.search);
+      if (window.location.search.length > 3) {
+        setQuery(window.location.search);
+      } else {
+        setQuery('');
+      }
     },
     [window.location.search]
   );
@@ -55,6 +61,8 @@ export function SearchResults() {
         setGames(parsedData);
         setActiveTab(tabNumber);
 
+        addDataToFirestore(storageKey, parsedData);
+
         // Background fetch and update local storage
         fetchAndUpdateLocalStorage(url, storageKey);
       } else {
@@ -64,6 +72,8 @@ export function SearchResults() {
         setQuery('');
         setGames(data.results);
         setActiveTab(tabNumber);
+
+        addDataToFirestore(storageKey, data.results);
 
         localStorage.setItem(storageKey, JSON.stringify(data.results));
       }
@@ -84,6 +94,44 @@ export function SearchResults() {
       console.log('Background fetch error: ' + err.message);
     }
   };
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Function to add data to Firestore
+  const addDataToFirestore = async (filteredGames, fetchedGames) => {
+    try {
+      const gamesCollection = collection(db, filteredGames);
+
+      // Create an array to store game data
+      const gamesData = fetchedGames.map((game) => ({
+        name: game.name,
+        released: game.released,
+      }));
+
+      // Add data to firestore
+      await Promise.all(
+        gamesData.map(async (gameData) => {
+          await addDoc(gamesCollection, gameData);
+        })
+      );
+
+      // Fetch data from firestore,
+      const gamesSnapshot = await getDocs(gamesCollection);
+      gamesSnapshot.forEach((doc) => {
+        console.log(doc.data());
+      });
+      console.log(
+        '------------------------------------------------------------------------------------------------------------------'
+      );
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+    // Call the function to add and retrieve data
+    addDataToFirestore('filteredGames_all', games);
+  }, []);
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <>
