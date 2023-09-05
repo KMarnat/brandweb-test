@@ -21,7 +21,7 @@
     }
   }
 
-  &__post {
+  .create-post {
     background-color: var(--card-bg);
     margin: 1rem 0;
     border-radius: 0.625rem;
@@ -29,57 +29,57 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
 
-  &__form {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    &-media {
-      position: absolute;
-      inset: 0 auto 0 0;
-      padding-left: 2rem;
-    }
-
-    &-emoji {
-      position: absolute;
-      inset: 0 0 0 auto;
-      padding-right: 5rem;
-    }
-
-    &-submit {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      z-index: 3;
-      background-color: var(--title-bg);
-      flex-shrink: 0;
-
-      img {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-  }
-
-  &__inputarea {
-    width: 100%;
-
-    input {
-      background-color: var(--btn-bg);
-      border-radius: 0.625rem;
-      color: var(--main-white);
-      font-size: 1rem;
+    &__inputarea {
       width: 100%;
-      height: 3rem;
-      border-radius: 0.625rem;
-      padding: 0 3.5rem;
-      border: none;
-      margin: 0 1rem;
+
+      .form {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        &__input {
+          background-color: var(--btn-bg);
+          border-radius: 0.625rem;
+          color: var(--main-white);
+          font-size: 1rem;
+          width: 100%;
+          height: 3rem;
+          border-radius: 0.625rem;
+          padding: 0 3.5rem;
+          border: none;
+          margin: 0 1rem;
+        }
+
+        &__add-media {
+          position: absolute;
+          inset: 0 auto 0 0;
+          padding-left: 2rem;
+        }
+
+        &__add-emoji {
+          position: absolute;
+          inset: 0 0 0 auto;
+          padding-right: 5rem;
+        }
+
+        &__submit {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          z-index: 3;
+          background-color: var(--title-bg);
+          flex-shrink: 0;
+
+          img {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+      }
     }
   }
 
@@ -88,7 +88,7 @@
     width: 100%;
   }
 
-  &__submitted-post {
+  .post {
     background-color: var(--card-bg);
     border-radius: 0.625rem;
     padding: 1rem;
@@ -96,44 +96,44 @@
     flex-direction: column;
     width: 100%;
     position: relative;
-  }
 
-  &__poster {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-
-    &-img {
-      width: 3.5rem;
-      height: 3.5rem;
-    }
-
-    &-menu {
-      transform: rotate(90deg);
-      position: absolute;
-      inset: 0 0 0 auto;
-    }
-
-    &-playing {
+    &__author {
+      position: relative;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 1rem;
+      flex-direction: row;
 
-      &--bold {
-        font-weight: 600;
+      &-img {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+
+      &-menu {
+        transform: rotate(90deg);
+        position: absolute;
+        inset: 0 0 0 auto;
+      }
+
+      &-playing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+
+        &--bold {
+          font-weight: 600;
+        }
       }
     }
-  }
 
-  &__content {
-    margin: 2rem 0 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid;
-    border-image: linear-gradient(0.25turn, #7800c6, #7000ff);
-    border-image-slice: 1;
+    &__content {
+      margin: 2rem 0 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid;
+      border-image: linear-gradient(0.25turn, #7800c6, #7000ff);
+      border-image-slice: 1;
+    }
 
-    &-actions {
+    &__actions {
       button {
         margin-right: 2rem;
       }

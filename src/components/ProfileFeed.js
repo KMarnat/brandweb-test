@@ -13,45 +13,45 @@ export default function ProfileFeed() {
         <button>Feed</button>
       </div>
 
-      <div className="feed__post">
+      <div className="create-post">
         <UserWithStatus
           source={'https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png'}
           status={true}
         />
-        <div className="feed__inputarea">
-          <form className="feed__form">
-            <input placeholder="Start typing..."></input>
-            <button className="feed__form-media">
+        <div className="create-post__inputarea">
+          <form className="form">
+            <input placeholder="Start typing..." className="form__input"></input>
+            <button className="form__add-media">
               <img src={addmedia} alt="add media" />
             </button>
-            <button className="feed__form-emoji">
+            <button className="form__add-emoji">
               <img src={addemoji} alt="add emoji" />
             </button>
 
-            <button className="feed__form-submit">
+            <button className="form__submit">
               <img src={submit} alt="submit button icon" />
             </button>
           </form>
         </div>
       </div>
-      <article className="feed__submitted-post">
-        <div className="feed__poster">
+      <article className="post">
+        <div className="post__author">
           <img
             src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
             alt="profile avatar"
-            className="feed__poster-img"
+            className="post__author-img"
           />
-          <div className="feed__poster-playing">
+          <div className="post__author-playing">
             <p>
-              <span className="feed__poster-playing--bold">Big dog lover girls</span> playing{' '}
-              <span className="feed__poster-playing--bold">Call of Duty</span>
+              <span className="post__author-playing--bold">Big dog lover girls</span> playing{' '}
+              <span className="post__author-playing--bold">Call of Duty</span>
             </p>
             <p>47 min</p>
           </div>
 
-          <img src={settings} className="feed__poster-menu" alt="post settings" />
+          <img src={settings} className="post__author-menu" alt="post settings" />
         </div>
-        <div className="feed__content">
+        <div className="post__content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dolor nulla, interdum nec
             massa nec, vestibulum faucibus neque. Aliquam est sem, vehicula eu varius mattis,
@@ -61,11 +61,11 @@ export default function ProfileFeed() {
             mi sed euismod. Suspendisse ut viverra nibh,
           </p>
         </div>
-        <div className="feed__content-actions">
-          <button>
+        <div className="post__actions">
+          <button className="post__actions-like">
             <img src={likes} alt="likes on posts" />
           </button>
-          <button>
+          <button className="post__actions-comment">
             <img src={comments} alt="comments on posts" />
           </button>
         </div>
