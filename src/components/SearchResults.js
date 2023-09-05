@@ -108,17 +108,15 @@ export function SearchResults() {
             ? Array.from({ length: totalSkeletonCards }).map((_, i) => <SkeletonCard key={i} />)
             : games &&
               games.map((game) => (
-                <Link to={`/selected/${game.id}`} key={game.id}>
-                  <Card
-                    key={game.id}
-                    name={game.name}
-                    poster={game.background_image}
-                    genres={game.genres}
-                    id={game.id}
-                    setSelectedGame={setSelectedGame}
-                    selectedGame={selectedGame}
-                  />
-                </Link>
+                <Card
+                  key={game.id}
+                  name={game.name}
+                  poster={game.background_image}
+                  genres={game.genres}
+                  id={game.id}
+                  setSelectedGame={setSelectedGame}
+                  selectedGame={selectedGame}
+                />
               ))}
         </div>
       </div>
