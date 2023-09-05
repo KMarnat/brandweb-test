@@ -10,16 +10,20 @@ export default function Login() {
         <input
           placeholder="Enter your email..."
           type="text"
+          className="login-form__input"
           onChange={(e) => setEmail(e.target.value)}
-        ></input>
+        />
 
         <input
           placeholder="Enter a password..."
           type="password"
           onChange={(e) => setEmail(e.target.value)}
-        ></input>
+          className="login-form__input"
+        />
 
-        <button type="submit">Sign up</button>
+        <button type="submit" className="login-form__btn btn-secondary">
+          Sign up
+        </button>
       </fieldset>
     </form>
   );
