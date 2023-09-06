@@ -4,8 +4,9 @@ import { fetchData, fetchSearchData } from '../utils/shared';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Filter } from './Filter';
-import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { db } from '../services/firebase.config';
+import { collection, getDocs } from 'firebase/firestore';
+import { addDataToFirestore } from '../utils/shared';
 
 export function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +21,7 @@ export function SearchResults() {
   const totalSkeletonCards = 20;
 
   const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
+
   // First load of the site, fetching the games
   useEffect(
     function () {
@@ -46,92 +48,49 @@ export function SearchResults() {
     },
     [query]
   );
-  /* If there is data in local storage, that data is displayed, after that a fetch function will run that will update the local storage (fetchAndUpdateLocalStorage(url, storageKey)), if no data is in local storage the else block will run, data is fetched and that is displayed and saved into local storage*/
+
+  /* If data is in the database and it matches the filtering criteria then that data is used, if it does not exist, it will be fetched from the API */
   const handleFiltering = async (url, tabNumber, filteredCriteria) => {
     try {
       setIsLoading(true);
 
       const storageKey = `filteredGames_${filteredCriteria}`;
-      const storedData = localStorage.getItem(storageKey);
+      const gamesCollection = collection(db, storageKey);
 
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-
-        setQuery('');
-        setGames(parsedData);
-        setActiveTab(tabNumber);
-
-        addDataToFirestore(storageKey, parsedData);
-
-        // Background fetch and update local storage
-        fetchAndUpdateLocalStorage(url, storageKey);
-      } else {
+      // Check if data is already in the Firestore collection
+      const gamesSnapshot = await getDocs(gamesCollection);
+      if (gamesSnapshot.empty) {
+        // If no data in collection, fetch it
         const response = await fetch(url);
         const data = await response.json();
 
         setQuery('');
         setGames(data.results);
-        setActiveTab(tabNumber);
+        console.log('Fetching from the rawg API');
 
+        // Add the data to the collection
         addDataToFirestore(storageKey, data.results);
-
-        localStorage.setItem(storageKey, JSON.stringify(data.results));
+      } else {
+        // Data already in collection, no need to fetch from API
+        const firestoreGames = gamesSnapshot.docs.map((doc) => doc.data());
+        setGames(firestoreGames);
+        console.log('Fetching from the collection in Firestore');
       }
+
+      setActiveTab(tabNumber);
     } catch (err) {
       console.log(err.message);
     } finally {
       setIsLoading(false);
+      console.log(filteredCriteria);
     }
   };
 
-  // Fetches games and stores them in local storage
-  const fetchAndUpdateLocalStorage = async (url, storageKey) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      localStorage.setItem(storageKey, JSON.stringify(data.results));
-    } catch (err) {
-      console.log('Background fetch error: ' + err.message);
-    }
-  };
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Function to add data to Firestore
-  const addDataToFirestore = async (filteredGames, fetchedGames) => {
-    try {
-      const gamesCollection = collection(db, filteredGames);
-
-      // Create an array to store game data
-      const gamesData = fetchedGames.map((game) => ({
-        name: game.name,
-        released: game.released,
-      }));
-
-      // Add data to firestore
-      await Promise.all(
-        gamesData.map(async (gameData) => {
-          await addDoc(gamesCollection, gameData);
-        })
-      );
-
-      // Fetch data from firestore,
-      const gamesSnapshot = await getDocs(gamesCollection);
-      gamesSnapshot.forEach((doc) => {
-        console.log(doc.data());
-      });
-      console.log(
-        '------------------------------------------------------------------------------------------------------------------'
-      );
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
-  useEffect(() => {
-    // Call the function to add and retrieve data
-    addDataToFirestore('filteredGames_all', games);
-  }, []);
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // useEffect(() => {
+  //   // Call the function to add and retrieve data
+  //   setActiveTab(1);
+  //   addDataToFirestore('filteredGames_all', games, setGames);
+  // }, []);
 
   return (
     <>
