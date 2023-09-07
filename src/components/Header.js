@@ -22,7 +22,7 @@ export function Header({ query, setQuery }) {
         <input
           type="search"
           placeholder="Search..."
-          className="header__actions-search"
+          className="header__search"
           onChange={(e) => {
             setQuery(e.target.value);
             navigate(`/search?${e.target.value}`);
@@ -36,7 +36,7 @@ export function Header({ query, setQuery }) {
             <Link to={'/login'}>
               <button
                 className="header__btn btn-secondary"
-                // onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
+                onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
               >
                 Login
               </button>

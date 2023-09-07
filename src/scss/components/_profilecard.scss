@@ -1,121 +1,132 @@
 /* Profile card component
 ----------------*/
-// Image of the product
-
 .profilecard {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--card-bg);
-  position: relative;
-  border-radius: 0.625rem;
-  align-self: flex-start;
-  padding: 0 1rem 1rem;
+  display: flex; // Activate flexbox
+  align-items: center; // Centering items
+  flex-direction: column; // Staking on top of each other
+  background-color: var(--card-bg); // Setting background color
+  position: relative; // Positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left
+  border-radius: 0.625rem; // 10px border radius
+  align-self: flex-start; // Background is sized to the content, not the cell
+  padding: 0 1rem 1rem; // Spacing inside the element
 
+  // Styles for max screen width of 1000px
   @media #{$breakpoint-large} {
-    margin: 0;
+    margin: 0; // Removing spac
   }
 
-  @media #{$breakpoint-tablet-portrait} {
-  }
-
+  // Profilecards image
   &__avatar {
-    padding: 0 3rem;
-    width: 100%;
-    transform: translateY(-50%);
+    padding: 0 3rem; // Extra spacing inside of the element
+    width: 100%; // Taking up 100% of space horizontally
+    transform: translateY(-50%); // Moving the image up on the Y axis
 
+    // Styles for max screen width of 1600px
     @media (max-width: 100rem) {
-      padding: 0 2rem;
+      padding: 0 2rem; // Changing the image size with the padding of the parent container
     }
 
+    // Styles for max screen width of 1400px
     @media #{$breakpoint-xxlarge} {
-      padding: 0 1.5rem;
+      padding: 0 1.5rem; // Changing the image size with the padding of the parent container
     }
 
-    @media #{$breakpoint-xxlarge} {
-      padding: 0 2.5rem;
-    }
-
+    // Styles for max screen width of 992px
     @media #{$breakpoint-large} {
-      padding: 0 14rem;
+      padding: 0 14rem; // Changing the image size with the padding of the parent container
     }
 
+    // Styles for max screen width of 768px
     @media #{$breakpoint-tablet-portrait} {
-      padding: 0 8rem;
+      padding: 0 8rem; // Changing the image size with the padding of the parent container
     }
 
+    // Styles for max screen width of 567px
     @media #{$breakpoint-mobile-landscape} {
-      padding: 0 4rem;
+      padding: 0 4rem; // Changing the image size with the padding of the parent container
     }
 
     div {
       img {
-        border: 7px solid transparent;
+        border: 7px solid transparent; // Border around the profile image
         background: linear-gradient(#7800c6, #7000ff) padding-box,
-          linear-gradient(#7800c6, #7000ff) border-box;
-        border-radius: 50%;
+          linear-gradient(#7800c6, #7000ff) border-box; // Color styles of the border
+        border-radius: 50%; // Round corners
       }
     }
   }
 
+  // Three dotted menu styles
   &__menu {
-    position: absolute;
-    inset: 0 0 0 auto;
-    margin: 1rem;
+    position: absolute; // Makes it moveable if the parent element has position set to relative
+    inset: 0 0 0 auto; // Positioning to the rop right corner
+    margin: 1rem; // Extra spacing around the element
   }
 
-  &__details {
-    margin-bottom: 2rem;
-    h2 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-  }
-
+  // Profile content container
   &__content {
-    text-align: center;
+    text-align: center; // Setting text to align center
   }
 
+  // Profile info container
+  &__details {
+    margin-bottom: 2rem; // Spacing on the bottom
+
+    // Name of...
+    h2 {
+      // Layout
+      margin-bottom: 0.5rem; // Spacing bottom
+
+      // Typo
+      font-size: 1.5rem;
+      font-weight: 600; // Boldiness
+    }
+
+    // Extra info of the profile
+    p {
+      margin-bottom: 1rem; // Spacing bottom
+      line-height: 1.5; // Size of each line of text
+    }
+  }
+
+  // Container that shows followers, friends, following
   &__numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-row-gap: 0px;
-    font-weight: 600;
-    font-size: 1.125rem;
+    display: grid; // Acctivate grid
+    grid-template-columns: repeat(3, 1fr); // 3 equal columns
+    font-weight: 600; // Boldiness of the text
+    font-size: 1.125rem; // Font size
 
-    @media only screen and (max-width: 1600px) {
-      grid-template-columns: auto;
-
-      grid-row-gap: 0.5rem;
+    // Styles for max screen width of 1600px
+    @media only screen and (max-width: 100rem) {
+      grid-template-columns: auto; // Automatically changing grid columns
+      grid-row-gap: 0.5rem; // Setting gap between rows
     }
 
+    // Styles for max screen width of 1000px
     @media #{$breakpoint-large} {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; // Setting the cells next to each other
     }
   }
 
+  // Styles for the friends, followers, following cells
   &__counter {
     @media only screen and (max-width: 1600px) {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-    }
-    @media #{$breakpoint-large} {
-      display: block;
+      display: flex; // Activate flex
+      justify-content: center; // Positioning in the center of the cell
+      text-align: center; // Aligning center in the cell
     }
 
+    // Styles for max screen width of 1000px
+    @media #{$breakpoint-large} {
+      display: block; // Changing display to block
+    }
+
+    // Text inside the counter cells
     p {
+      // Styles for max screen width of 428px
       @media #{$breakpoint-mobile-portrait} {
-        font-weight: 300;
-        font-size: 1rem;
+        font-weight: 300; // Changing boldness
+        font-size: 1rem; // Changing font size
       }
     }
   }

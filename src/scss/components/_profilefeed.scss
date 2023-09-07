@@ -1,141 +1,146 @@
 /* Porfile feed component
 ----------------*/
 .feed {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-  // margin-top: 7rem;
+  display: flex; // Activate flex
+  flex-direction: column; // Setting items next to each other
+  line-height: 1.5; // Setting height of each line
 
+  // Container of the buttons in the feed component
   &__buttons {
-    position: relative;
-    border-radius: 0.625rem;
+    border-radius: 0.625rem; // 10px border radius
+    background-color: var(--card-bg); // background color
 
-    background-color: var(--card-bg);
-
+    // Each button in the buttons container
     button {
       height: 2.25rem;
       width: 9.125rem;
-      border-radius: 0.625rem;
-      background: -webkit-linear-gradient(#7800c6, #7000ff);
-      margin: 0.5rem;
+      border-radius: 0.625rem; // 10px border radius
+      background: -webkit-linear-gradient(#7800c6, #7000ff); // background color
+      margin: 0.5rem; // Spacing around the button
     }
   }
 
+  //  Input block styles
   .create-post {
     background-color: var(--card-bg);
-    margin: 1rem 0;
-    border-radius: 0.625rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin: 1rem 0; // Spacing around the element
+    border-radius: 0.625rem; // 10px border radius
+    padding: 1rem; // Spacing inside the element
+    display: flex; // Activate flex
+    flex-direction: row; // Placing items in a row next to each other
+    align-items: center; // Aligning items in the center
 
+    // Input style
     &__inputarea {
-      width: 100%;
+      width: 100%; // Taking as much space as possible
 
+      // Form inside the inputarea
       .form {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        position: relative; // Positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left
+        width: 100%; // Fill out the entire space
+        display: flex; // Activate flex
+        flex-direction: row; // Placing items in a row next to each other
+        justify-content: center; // ALigning items center on the Y axis
+        align-items: center; // ALigning items center on the X axis
 
+        // Styles for the input itself
         &__input {
           background-color: var(--btn-bg);
-          border-radius: 0.625rem;
-          color: var(--main-white);
-          font-size: 1rem;
-          width: 100%;
+          border-radius: 0.625rem; // 10px border radius
+          color: var(--main-white); // Text color when typing inside the input
+          font-size: 1rem; // Text size
+          width: 100%; // Fill out the entire space
           height: 3rem;
-          border-radius: 0.625rem;
-          padding: 0 3.5rem;
-          border: none;
-          margin: 0 1rem;
+          border-radius: 0.625rem; // 10px border radius
+          padding: 0 3.5rem; // Spacing inside the element
+          border: none; // Removing default border
+          margin: 0 1rem; // Spacing around the element, left and right
         }
 
+        // Button styles
         &__add-media {
-          position: absolute;
-          inset: 0 auto 0 0;
-          padding-left: 2rem;
+          position: absolute; // Can be place anywhere within a container that has position relative
+          inset: 0 auto 0 0; // Positioning to the middle left
+          padding-left: 2rem; // Extra space inside the element
         }
 
+        // Button styles
         &__add-emoji {
-          position: absolute;
-          inset: 0 0 0 auto;
-          padding-right: 5rem;
+          position: absolute; // Can be place anywhere within a container that has position relative
+          inset: 0 0 0 auto; // Positioning to the middle left
+          padding-right: 5rem; // Extra space inside the element
         }
 
+        // Submit button
         &__submit {
           width: 3rem;
           height: 3rem;
-          border-radius: 50%;
-          z-index: 3;
+          border-radius: 50%; // Round corners
           background-color: var(--title-bg);
-          flex-shrink: 0;
+          flex-shrink: 0; // No shrink
 
+          // Arrow icon inside the button
           img {
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.5rem; // Setting dimensions
+            height: 1.5rem; // Setting dimensions
           }
         }
       }
     }
   }
 
-  &__poster {
-    display: flex;
-    width: 100%;
-  }
-
+  // Container of a post
   .post {
     background-color: var(--card-bg);
-    border-radius: 0.625rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+    border-radius: 0.625rem; // 10px border radius
+    padding: 1rem; // Spacing inside the element
+    display: flex; // Activate flexbox
+    flex-direction: column; // Setting items on top of each other
+    width: 100%; // Fill out the entire space
+    position: relative; // Allowing to move position absolute items freely in the element
 
+    // Stlyes for the post author
     &__author {
-      position: relative;
-      display: flex;
-      flex-direction: row;
+      position: relative; // Allowing to move position absolute items freely in the element
+      display: flex; // Activate flexbox
+      flex-direction: row; // Setting items next to of each other
 
+      // Image of the post author
       &-img {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.5rem; // Setting dimensions
+        height: 3.5rem; // Setting dimensions
       }
 
+      // Post menu/settings
       &-menu {
-        transform: rotate(90deg);
-        position: absolute;
-        inset: 0 0 0 auto;
+        transform: rotate(90deg); // Rotating the image 90 degrees
+        position: absolute; // Can be place anywhere within a container that has position relative
+        inset: 0 0 0 auto; // Placing it to the top right corner
       }
 
+      // Container of info about who is play what
       &-playing {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-left: 1rem;
-
-        &--bold {
-          font-weight: 600;
-        }
+        display: flex; // Activate flexbox
+        flex-direction: column; // Setting items on top of each other
+        justify-content: center; // ALigning items center on the Y axis
+        margin-left: 1rem; // Spacing around the element
       }
     }
 
+    // Paragraph container
     &__content {
-      margin: 2rem 0 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(0.25turn, #7800c6, #7000ff);
-      border-image-slice: 1;
+      margin: 2rem 0 1rem; // Spacing around the element
+      padding-bottom: 1rem; // Spacing inside the element
+      border-bottom: 1px solid; // 1 px border
+      border-image: linear-gradient(0.25turn, #7800c6, #7000ff); // Border color
+      border-image-slice: 1; // Size of the border
     }
 
+    // Comments and likes container
     &__actions {
+      // Buttons
       button {
-        margin-right: 2rem;
+        margin-right: 2rem; // Extra spacing on the right
       }
     }
   }
