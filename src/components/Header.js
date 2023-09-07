@@ -36,7 +36,7 @@ export function Header({ query, setQuery }) {
             <Link to={'/login'}>
               <button
                 className="header__btn btn-secondary"
-                onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
+                // onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
               >
                 Login
               </button>

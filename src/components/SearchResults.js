@@ -39,10 +39,11 @@ export function SearchResults() {
       if (window.location.pathname === '/search' && !query) {
         navigate('/');
       }
-      // Data fetching when query changes, minimum length of characters is 3
-      if (query) {
+      if (query.length >= 3) {
         fetchSearchData(setIsLoading, setGames, KEY, query.replace('?', ' '));
       } else {
+        setGames([]);
+        console.log('Fetching from the API');
         fetchData(setIsLoading, setGames, KEY);
       }
     },
@@ -57,8 +58,8 @@ export function SearchResults() {
       const storageKey = `filteredGames_${filteredCriteria}`;
       const gamesCollection = collection(db, storageKey);
 
-      // Check if data is already in the Firestore collection
       const gamesSnapshot = await getDocs(gamesCollection);
+      // Check if data is already in the Firestore collection
       if (gamesSnapshot.empty) {
         // If no data in collection, fetch it
         const response = await fetch(url);
@@ -85,12 +86,6 @@ export function SearchResults() {
       console.log(filteredCriteria);
     }
   };
-
-  // useEffect(() => {
-  //   // Call the function to add and retrieve data
-  //   setActiveTab(1);
-  //   addDataToFirestore('filteredGames_all', games, setGames);
-  // }, []);
 
   return (
     <>

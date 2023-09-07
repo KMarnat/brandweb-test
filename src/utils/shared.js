@@ -9,6 +9,7 @@ export const fetchData = async (setIsLoading, setGames, KEY) => {
 
     const newData = await res.json();
     setGames(newData.results);
+    console.log('Fetching from API');
   } catch (err) {
     console.error(err.message);
   } finally {
@@ -16,9 +17,9 @@ export const fetchData = async (setIsLoading, setGames, KEY) => {
   }
 };
 
-export const fetchSearchData = async (setIsLoading, setSearchedGames, KEY, query) => {
+export const fetchSearchData = async (setIsLoading, setGames, KEY, query) => {
   if (query.length < 3) {
-    setSearchedGames([]);
+    setGames([]);
     return;
   }
   try {
@@ -27,7 +28,7 @@ export const fetchSearchData = async (setIsLoading, setSearchedGames, KEY, query
     if (!res) throw new Error('Error fetching searched data');
 
     const newData = await res.json();
-    setSearchedGames(newData.results);
+    setGames(newData.results);
   } catch (err) {
     console.error(err.message);
   } finally {
@@ -50,7 +51,6 @@ export const addDataToFirestore = async (filteredGames, fetchedGames) => {
     gamesSnapshot.forEach((doc) => {
       existingGameNames.push(doc.data().name); // Exsting names get pushed into existingGameNames
       fetchedFromFirestore.push(doc.data()); // The entire collection gets puhsed into fetchedFromFirestore
-      console.log(doc.data());
     });
 
     // Filtering fetchedGames (games that are received from the API)
