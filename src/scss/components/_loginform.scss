@@ -1,33 +1,33 @@
 /* Login form component
 ----------------------*/
 .login-form {
-  display: flex;
+  display: flex; // Activate flex-box
+  justify-content: center; // Placing the login form in the center
+  margin: 5rem 3rem; // Extra space around
 
-  justify-content: center;
-  // align-items: center;
-  margin: 5rem 3rem;
-
+  // Styles for both login inputs
   &__input {
-    width: 10rem;
-    margin-bottom: 2rem;
     width: 20rem;
     height: 2.5rem;
-    border-radius: 0.625rem;
-    padding: 0 1.5rem;
-    background-color: transparent;
-    border: 1px solid var(--main-gray);
+    border-radius: 0.625rem; // 10px border radius
+    margin-bottom: 2rem; // Spacing under the input
+    padding: 0 1.5rem; // Spacing inside the inputs
+    background-color: transparent; // No background color
+    border: 1px solid var(--main-gray); // Gray 1px background around the inputs
   }
 
+  // Sign up button
   &__btn {
     width: 7rem;
     height: 2.5rem;
   }
 
+  // Stlyes of the container containing inputs and button
   &__details {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 0.625rem;
+    display: flex; // Activate flexbox
+    flex-direction: column; // Stacking above each other in a column
+    background-color: var(--card-bg); // Background color
+    padding: 2rem; // Spacing inside the element
+    border-radius: 0.625rem; // 10px border radius
   }
 }

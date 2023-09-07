@@ -1,86 +1,90 @@
 /* Card component
 --------------------*/
 .card {
-  position: relative;
+  position: relative; // Allowing to move a position absolute element in the area of the card
 
+  // Hover effect on the entire card
   &:hover {
     cursor: pointer;
   }
 
+  // Container with title, description and user actions
   &__content {
-    border-radius: 0.625rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    // Layout
+    display: flex; // Activate flexbox
+    flex-direction: column; // Stack the items inside the tag
+    justify-content: space-between; // Space the items between available sapce
+    position: relative; // Needed for placement
+    top: -1.5rem; // Moves the box under the image
+    height: calc(100% - 150px); // Used for equal height of columns and minus the image height
+    width: 100%; // Fill out the entire space
+    border-radius: 0.625rem; // Border radius of 10px
     padding: 3rem 2rem 0 2rem;
     background-color: var(--card-bg);
-    position: relative;
-    top: -1.5rem;
-    align-items: stretch;
-    height: calc(100% - 150px);
-    width: 100%;
   }
 
   // Blue shadow behind every card, top left
   &__shadow {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    top: 2%;
-    left: 10%;
-    border-radius: 50%;
-    box-shadow: #1362d8 0px 2rem 4.5rem 1.5rem;
-    z-index: -1;
+    // Layout
+    position: absolute; // To move the element top left, behind the card image
+    height: 2px; // Giving it dimensions so it would be visible, since it is an empty div
+    width: 2px; // Giving it dimensions so it would be visible, since it is an empty div
+    top: 2%; // Positioning from the top
+    left: 10%; // Positioning from the left
+    box-shadow: #1362d8 0px 2rem 4.5rem 1.5rem; // Shadow length values
+    z-index: -1; // Pushing it in the back, so it's behind the image
   }
 
+  // Container of the title and description of the game
   &__description {
-    padding-bottom: 1rem;
+    padding-bottom: 1rem; // Giving extra space under
 
+    // Title of the game
     h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.6rem; // Making the title bigger
+      margin-bottom: 0.5rem; // Extra spacing on the bottom
     }
 
+    // Element that contains the genres of the game
     p {
-      line-height: 1.25rem;
-      margin: 0.4rem 0;
-
-      &:nth-of-type(1) {
-        color: var(--main-gray);
-      }
+      margin: 0.4rem 0; // Extra sace on left and right
+      color: var(--main-gray); // Changing the color of the font
     }
   }
 
+  // Icons container at the bottom of the card
   &__icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 1rem 0;
-    border-top: 1px solid;
-    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
-    border-image-slice: 1;
+    // Layout
+    display: flex; // Activate flexbox
+    flex-direction: row; // Stack items next to each other in a row
+    justify-content: space-around; // Giving the items equal space around them
+    padding: 1rem 0; // Extra space above and below
+    border-top: 1px solid; // Border on the top of the icons
+    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9); // Linear color for the border
+    border-image-slice: 1; // Divides the border image. Setting to 1 makes the border visible
   }
 
+  // Class used for adaptive for of the cards
   .adaptive {
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 3;
-    position: relative;
-    width: 100%;
-    padding: 0 1rem;
+    display: flex; // Activate flexbox
+    flex-wrap: wrap; // Flex items break into multiple lines
+    z-index: 3; // Pulling it to the top of the document
+    position: relative; // Allowing to move position absolute items freely in the element
+    width: 100%; // Horizontally taking up all the space
+    padding: 0 1rem; // Extra room inside the element, left and right
 
     &-photo {
       height: 150px; /*This is what determines the height of your image*/
-      flex-grow: 1;
+      flex-grow: 1; // Specifies how much space should be assigned to the flex item's main size
 
       img {
-        max-height: 100%;
-        min-width: 100%;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        vertical-align: bottom;
-        border-radius: 0.625rem;
+        max-height: 100%; // Vertically taking up all the space, maximum
+        min-width: 100%; // Horizontally taking up all space, minimum
+        width: 100%; // Vertically taking up all the space
+        height: 100%; // Horizontally taking up all the space
+        object-fit: cover; // To maintain its aspect ratio while filling the element's entire content box
+        vertical-align: bottom; // Vertically aligning to the bottom
+        border-radius: 0.625rem; // 10px border radius
       }
     }
   }

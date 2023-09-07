@@ -40,29 +40,29 @@
         align-items: center;
       }
     }
+  }
 
-    // Search bar
-    &-search {
-      width: 20rem;
-      height: 2.5rem;
-      border-radius: 0.625rem;
-      padding: 0 1.5rem;
-      background-color: transparent;
-      border: 1px solid var(--main-gray);
-      margin: 0 1rem;
+  // Search bar
+  &__search {
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    padding: 0 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--main-gray);
+    margin: 0 1rem;
 
-      @media #{$breakpoint-xlarge} {
-        width: 15rem;
-      }
-      @media #{$breakpoint-large} {
-        width: 10rem;
-      }
+    @media #{$breakpoint-xlarge} {
+      width: 15rem;
+    }
+    @media #{$breakpoint-large} {
+      width: 10rem;
+    }
 
-      @media #{$breakpoint-mobile-landscape} {
-        margin: 0;
-        width: 7rem;
-        padding-left: 0.8rem;
-      }
+    @media #{$breakpoint-mobile-landscape} {
+      margin: 0;
+      width: 7rem;
+      padding-left: 0.8rem;
     }
   }
 

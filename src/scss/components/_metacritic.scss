@@ -1,28 +1,27 @@
 /* Metacritic component
 -------------------*/
 .metacritic {
-  padding: 0.5rem;
-  border-radius: 50%;
-  border: 0.125rem solid;
-  display: inline-flex;
-  align-items: center;
+  padding: 0.5rem; // Spacing inside the element
+  border-radius: 50%; // Perfectly round
+  border: 0.125rem solid; // 2px border
+  display: inline-flex; // Element behaves like an inline-level element and lays out its content according to the flexbox model.
+  align-items: center; // Centering items inside
 
   // Colors for when metacritic rating is more than 66
   &--high {
-    color: rgb(7, 192, 7);
-    border-color: rgb(7, 192, 7);
+    color: rgb(7, 192, 7); // Color of the text
+    border-color: rgb(7, 192, 7); // Color of the border
   }
 
   // Colors for when metacritic rating is more than 33, and less than 66
-
   &--mid {
-    color: rgb(240, 240, 4);
-    border-color: rgb(240, 240, 4);
+    color: rgb(240, 240, 4); // Color of the text
+    border-color: rgb(240, 240, 4); // Color of the border
   }
 
   // Colors for when metacritic rating is below 33
   &--low {
-    color: rgb(230, 2, 2);
-    border-color: rgb(230, 2, 2);
+    color: rgb(230, 2, 2); // Color of the text
+    border-color: rgb(230, 2, 2); // Color of the border
   }
 }

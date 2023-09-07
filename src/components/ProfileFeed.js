@@ -43,8 +43,7 @@ export default function ProfileFeed() {
           />
           <div className="post__author-playing">
             <p>
-              <span className="post__author-playing--bold">Big dog lover girls</span> playing{' '}
-              <span className="post__author-playing--bold">Call of Duty</span>
+              <strong>Big dog lover girls</strong> playing <strong>Call of Duty</strong>
             </p>
             <p>47 min</p>
           </div>
