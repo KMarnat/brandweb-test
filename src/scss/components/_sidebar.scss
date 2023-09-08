@@ -3,105 +3,119 @@
 .sidebar {
   background-color: #090a1c;
   width: 17rem;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 4rem;
-  position: fixed;
-  inset: 0 auto 0 0;
-  z-index: 5;
-  transition: left 0.3s ease-in-out;
+  height: 100vh; // Heigh the size of the screen
+  display: flex; // Activate flexbox
+  flex-direction: column; // Aligning items in a column, one under the other
+  justify-content: space-between; // Giving the items inside space between each element, equally
+  padding-top: 4rem; // Spacing inside the element, top
+  position: fixed; // On scroll it stays visible
+  inset: 0 auto 0 0; // Location of the element
+  z-index: 5; // Pulling it to the top of the document
+  transition: left 0.3s ease-in-out; // Transition of the sidebar, when opening it on smaller screens
 
+  // Styles for max screen width of 1000px
   @media #{$breakpoint-large} {
     width: 15rem;
-    left: -13rem;
+    left: -13rem; // Moving it off-screen
   }
 
+  // logo in the sidebar
   &__logo {
     height: 5rem;
 
+    // Hover effect
     &:hover {
       cursor: pointer;
     }
 
+    // Styles for max screen width of 1000px
     @media #{$breakpoint-large} {
       height: 3.5rem;
     }
   }
 
+  // Menu container
   &__menu {
-    padding: 1rem 0 1rem 3rem;
+    padding: 1rem 0 1rem 3rem; // Setting spacing inside the element
 
+    // List items
     li {
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-      position: relative;
+      // Layout
+      display: flex; // Activate flexbox
+      align-items: center; // Alinging items in the center on the X axis
+      padding: 0.5rem; // Spacing inside the element
       height: 2.5rem;
-      width: auto;
-      color: var(--main-gray);
 
+      // Typo
+      color: var(--main-gray); // Setting text color
+
+      // Selecting the anchor tags in list items
       a {
-        padding-left: 2.5rem;
-        z-index: 3;
+        padding-left: 2.5rem; // Spacing inside the element, left
+        z-index: 3; // Stack level of the element, Z index
 
+        // Hover effect
         &:hover {
-          color: var(--main-white);
+          color: var(--main-white); // Color of text
         }
       }
 
+      // Icon in list item
       img {
-        position: absolute;
+        position: absolute; // Element is positioned relative to its closest positioned ancesto
       }
     }
 
     // Title of the sidebar menu list
     &-title {
-      border: 1px solid transparent;
-      border-radius: 0 2rem 2rem 0;
+      border: 1px solid transparent; // Border style of the element
+      border-radius: 0 2rem 2rem 0; // Border radius of the element, only changing top right and bottom right corners
       background-color: var(--title-bg);
-      padding: 0.6rem 0 0.6rem 4rem;
+      padding: 0.6rem 0 0.6rem 4rem; // Spacing inside the element
       width: 12rem;
-      margin-left: -4rem;
-      margin-bottom: 0.5rem;
+      margin-left: -4rem; // Spacing on the left side of the element, moving it left side
+      margin-bottom: 0.5rem; // Spacing outside the element, bottom
     }
   }
 
+  // Container of sidebar button and icons
   &__bottom {
-    display: flex;
-    flex-direction: column;
+    display: flex; // Activate flexbox
+    flex-direction: column; // Stacking items above one another
+    align-items: center; // Aligning them centerm, X axis
   }
 
   // Styles for the button that opens the menu when screen width is <62rem
   &__toggle {
-    position: absolute;
-    inset: 50% 0 auto auto;
-    font-size: 2rem;
-    padding: 0.5rem;
-    display: none;
+    position: absolute; // Element is positioned relative to its closest positioned ancesto
+    inset: 50% 0 auto auto; // Positioning of the element
+    padding: 0.5rem; // Spacing inside the element
+    display: none; // Invisible
     height: 3.5rem;
-    z-index: 6;
+    z-index: 6; // Stack level of the element, Z index
+    font-size: 2rem; // Text size
 
+    // Styles for max screen width of 1000px
     @media #{$breakpoint-large} {
-      display: block;
+      display: block; // Becomes visible
     }
   }
 
+  // Sidebar button
   &__btn {
     width: 9rem;
     height: 2.5rem;
-
-    margin: 5rem 0 1rem 0;
+    margin: 5rem 0 1rem 0; // Spacing outside the element
   }
 
+  // Container of the social icons
   &__socials {
     width: 7rem;
-    align-self: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; // Spacing outside the element, bottom
   }
 
+  // Class when side bar is active on smaller screens
   &--active {
-    left: 0 !important;
+    left: 0 !important; // Position for the sidebar when it is active
   }
 }

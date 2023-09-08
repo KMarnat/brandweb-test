@@ -1,21 +1,24 @@
 /* ProfileFriends component
 -------------------------*/
 .friends {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; // Activate flexbox
+  flex-direction: column; // Stacking items on top of each other in a column
+  align-items: center; // Aligning the friends items center in their container
   background-color: var(--card-bg);
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.625rem;
-  align-self: start;
+  padding: 0.5rem 1.5rem; // Extra room inside the container
+  border-radius: 0.625rem; // Border-radius of 10px
+  align-self: start; // Container doesn't take up entire cell, only the size of the content that is inside it
 
+  // Styles for max screen width of 1400px
   @media #{$breakpoint-xxlarge} {
-    display: none;
+    display: none; // Hiding the content
   }
 
+  // The list inside friends component
   &__list {
-    li {
-      margin-bottom: 0.5rem;
+    // Friends list item
+    .friend {
+      margin-bottom: 0.5rem; // Extra space under each item in the list
     }
   }
 }

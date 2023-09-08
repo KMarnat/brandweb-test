@@ -69,7 +69,7 @@ export function SelectedGame() {
                   ? englishAbout
                   : englishAbout?.split(' ').slice(0, 30).join(' ') + '...'}
               </p>
-              <button onClick={toggleExpanded}>
+              <button onClick={toggleExpanded} className="detail__expander">
                 {isExpanded ? 'Show less...' : 'Show more...'}
               </button>
             </div>

@@ -1,43 +1,44 @@
 /* Header component
 -----------------*/
 .header {
-  padding: 2.5rem 5rem;
-  display: flex;
-  height: 7.5rem;
-  background-color: var(--bg-color);
-  display: flex;
+  display: flex; // Activate flexbox
   justify-content: space-between;
-  align-items: center;
+  height: 7.5rem;
+  padding: 2.5rem 5rem; // Spacing inside the element
+  background-color: var(--bg-color);
 
   // Actions on the left side of the header - buttons and search
   &__actions {
-    display: flex;
-    align-items: center;
+    display: flex; // Activate flexbox
+    align-items: center; // Aligning center X axis
 
+    // Navigation buttons
     &-navbtn {
       // Layout
       height: 2.375rem;
       width: 2.375rem;
-      border-radius: 50%;
-      background-color: transparent;
-      border: 1px solid var(--main-gray);
-      margin-right: 1rem;
-      padding-bottom: 0.5rem;
+      border-radius: 50%; // Round corners
+      background-color: transparent; // No background
+      border: 1px solid var(--main-gray); // Setting the border around the elmeent
+      margin-right: 1rem; // Spacing outside the element, right side
+      padding-bottom: 0.5rem; // Spacing inside the element, bottom
 
       // Typography
-      color: var(--main-gray);
-      font-size: 1.9rem;
+      color: var(--main-gray); // Setting text color
+      font-size: 1.9rem; // Setting text size
 
+      // Navigation buttons hover effect
       &:hover {
-        color: var(--main-white);
+        color: var(--main-white); // Changing color to white
       }
 
+      // Styles for max screen width of 576px
       @media #{$breakpoint-mobile-landscape} {
         height: 2rem;
         width: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: flex; // Activate flexbox
+        justify-content: center; // Centering the symbols in the button Y axis
+        align-items: center; // Centering the symbols in the button Y axis
       }
     }
   }
@@ -46,96 +47,112 @@
   &__search {
     width: 20rem;
     height: 2.5rem;
-    border-radius: 0.625rem;
-    padding: 0 1.5rem;
-    background-color: transparent;
-    border: 1px solid var(--main-gray);
-    margin: 0 1rem;
+    border-radius: 0.625rem; // 10 px border radius
+    padding: 0 1.5rem; // Setting spacing inside the element, left and right side
+    background-color: transparent; // Removing background
+    border: 1px solid var(--main-gray); // Border style around the element
+    margin: 0 1rem; // Spacing outside the element, left and right
 
+    // Styles for max screen width of 1200px
     @media #{$breakpoint-xlarge} {
       width: 15rem;
     }
+
+    // Styles for max screen width of 1000px
     @media #{$breakpoint-large} {
       width: 10rem;
     }
 
+    // Styles for max screen width of 1000px
     @media #{$breakpoint-mobile-landscape} {
-      margin: 0;
+      margin: 0; // Removing spacing around the element
       width: 7rem;
-      padding-left: 0.8rem;
+      padding-left: 0.8rem; // Changing the spacing inside the element
     }
   }
 
-  // Right side of the header
+  // Action buttons for the user/profile
   &__useractions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex; // Activate flexbox
+    flex-direction: row; // Setting elements in a row next to each other
+    align-items: center; // Aligning items in the center on the X axis
   }
 
-  // Name and profile image
+  // Container of name and profile image in the header
   &__user {
-    display: flex;
-    align-items: center;
-    text-align: right;
+    display: flex; // Activate flexbox
+    align-items: center; // Aligning items in the center on the X axis
+    text-align: right; // Aligning text to the right side of the element
 
+    // Container of the name char name
     &-info {
-      text-align: right;
-
+      // Char name
       h4 {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5rem; // Spacing outside the element, under
       }
 
+      // Name of the user
       p {
-        color: var(--main-gray);
+        color: var(--main-gray); // Changing text color
       }
 
+      // Styles for max screen width of 1400px
       @media #{$breakpoint-xxlarge} {
-        display: none;
+        display: none; // Hiding the element
       }
     }
 
+    //  Image of the user
     &-avatar {
-      border-radius: 50%;
+      border-radius: 50%; // Setting border radius
       height: 4rem;
       width: 4rem;
-      margin: 0 1.5rem;
-      aspect-ratio: 1;
+      margin: 0 1.5rem; // Spacing outside the element, left and right
 
+      // Hover effect of the image
       &:hover {
-        cursor: pointer;
+        cursor: pointer; // Cursor becomes a pointer
       }
 
+      // Styles for max screen width of 1400px
       @media #{$breakpoint-xxlarge} {
-        margin: 0;
+        margin: 0; // Removing spacing outside the element
       }
+
+      // Styles for max screen width of 576px
       @media #{$breakpoint-mobile-landscape} {
         height: 3rem;
         width: 3rem;
       }
     }
 
+    // Container of the notifications
     &-notifications {
+      // Selecting the icon
       img {
-        cursor: pointer;
+        cursor: pointer; // Cursor becomes a pointer
 
+        // Styles for max screen width of 1400px
         @media #{$breakpoint-xxlarge} {
-          display: none;
+          display: none; // Hiding the element
         }
       }
     }
   }
 
+  // Login button and register button
   &__btn {
     width: 7rem;
     height: 2.5rem;
   }
 
+  // Styles for max screen width of 576px
   @media #{$breakpoint-mobile-landscape} {
-    padding: 1.5rem 2.5rem 1.5rem 3.125rem;
+    padding: 1.5rem 2.5rem 1.5rem 3.125rem; // Setting spacing inside the element
   }
 
+  // Styles for max screen width of 428px
   @media #{$breakpoint-mobile-portrait} {
-    padding: 1.5rem 0.625rem 1.5rem 2.5rem;
+    padding: 1.5rem 0.625rem 1.5rem 2.5rem; // Setting spacing inside the element
   }
 }
