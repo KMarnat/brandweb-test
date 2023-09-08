@@ -6,7 +6,7 @@ export default function ProfileFriends() {
     <aside className="friends">
       <ul className="friends__list">
         {friends.map((friend) => (
-          <li>
+          <li className="friend">
             <UserWithStatus source={friend.source} status={friend.status} />
           </li>
         ))}

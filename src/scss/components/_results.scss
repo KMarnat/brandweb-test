@@ -1,45 +1,58 @@
 /* Resulsts component
 -------------------*/
 .results {
-  margin: 1.875rem 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 1.875rem 5rem; // Extra spacing around the container
+  display: flex; // Activate flexbox
+  flex-direction: column; // Align the title and the cards container one under the other
 
+  // Title of the container
   h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem; // Setting text size
+    font-weight: 700; // Setting text boldness
+    margin-bottom: 1.5rem; // Spacing under the title
   }
 
+  // Grid container of the cards
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 2rem;
-    grid-row-gap: 0.5rem;
+    display: grid; // Activate grid
+    grid-template-columns: repeat(4, 1fr); // Setting the grid columns
+    grid-column-gap: 2rem; // Setting the gap between grid columns
+    grid-row-gap: 0.5rem; // Setting the gap between grid rows
 
+    // Styles for max screen width of 1400px
     @media #{$breakpoint-xxlarge} {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(
+        3,
+        1fr
+      ); // Changing the structure of the grid columns, 3 columns per row
     }
 
+    // Styles for max screen width of 1200px
     @media #{$breakpoint-xlarge} {
-      grid-template-columns: repeat(2, 1fr);
-      margin: 1.875rem 0 3.125rem 0;
+      grid-template-columns: repeat(
+        2,
+        1fr
+      ); // Changing the structure of the grid columns, 2 columns per row
+      margin: 1.875rem 0 3.125rem 0; // Spacing around the element
     }
 
+    // Styles for max screen width of 576px
     @media #{$breakpoint-mobile-landscape} {
-      grid-template-columns: repeat(1, 1fr);
-      margin: 1.875rem 1.5rem 1.875rem 1.875rem;
+      grid-template-columns: repeat(
+        1,
+        1fr
+      ); // Changing the structure of the grid columns, 1 column per row
+      margin: 1.875rem 1.5rem 1.875rem 1.875rem; // Spacing around the element
     }
   }
 
-  // Reducing padding when screen si smaller
+  // Styles for max screen width of 576px
   @media #{$breakpoint-mobile-landscape} {
-    margin: 2rem 2.5rem 2rem 3.125rem;
+    margin: 2rem 2.5rem 2rem 3.125rem; // Spacing around the element
   }
 
+  // Styles for max screen width of 768px
   @media #{$breakpoint-mobile-portrait} {
-    margin: 2.5rem 1.25rem 2.5rem 2.5rem;
+    margin: 2.5rem 1.25rem 2.5rem 2.5rem; // Spacing around the element
   }
 }

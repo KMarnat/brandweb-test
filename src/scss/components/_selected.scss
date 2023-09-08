@@ -1,59 +1,70 @@
 /* Selected game
 ------------------------------*/
 .selected {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 1.875rem 10.25rem;
-  gap: 1.875rem;
-  line-height: 1.2rem;
+  // Layout
+  display: flex; // Activate flexbox
+  margin: 1.875rem 10.25rem; // Spacing around the element
+  gap: 1.875rem; // Gap between elements
+
+  // Typo
+  line-height: 1.2rem; // Setting height of a line box, distancing text lines
 
   h1 {
-    font-size: 1.7rem;
-    padding: 1.5rem 0 1.5rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid;
-    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9);
-    border-image-slice: 1;
+    // Layout
+    padding: 1.5rem 0 1.5rem; // Spacing inside the element
+    margin-bottom: 1.5rem; // Spacing under the element
+    border-bottom: 1px solid; // Border specs under the element
+    border-image: linear-gradient(0.25turn, #1362d8, #02dbe9); // Border color
+    border-image-slice: 1; // Setting the size of it, 0 makes it invisible
+
+    // Typo
+    font-size: 1.7rem; // Setting text size
   }
 
-  // Styles for box that contains selected game image
+  // Styles for the box that contains the image, title, and about
   &__overview {
-    width: 100%;
+    width: 100%; // Take up as much space as possible, horizontally
 
+    // Selected game's image
     &-cover {
-      width: 100%;
+      width: 100%; // Take up as much space as possible, horizontally
     }
   }
 
+  // Container of the selected game's info
   &__detail-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 5rem);
-    grid-column-gap: 3.75rem;
-    grid-row-gap: 3.75rem;
-    width: 100%;
+    display: grid; // Activate grid
+    grid-template-columns: repeat(2, 1fr); // Setting 2 columns per row
+    grid-template-rows: repeat(
+      4,
+      5rem
+    ); // Setting the size of the cell, when about text is expanded, the cells keep their size and don't move around
+    grid-column-gap: 3.75rem; // Spacing between grid columns
+    grid-row-gap: 3.75rem; // Spacing between grid rows
+    width: 100%; // Take up as much space as possible, horizontally
   }
 
+  // Container of each cell
   .detail {
+    // Title
     h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.7rem;
-      color: var(--main-gray);
+      // Typo
+      font-size: 1.3rem; // Setting text size
+
+      // Layout
+      margin-bottom: 0.7rem; // Spacing under the element
+      color: var(--main-gray); // Setting text color
     }
 
-    button {
-      color: var(--main-gray);
-    }
-
-    &-about {
-      width: 100%;
+    // Show more button on the about paragraph
+    &__expander {
+      color: var(--main-gray); // Setting text color
     }
   }
 
+  // Styles for max screen width of 1200px
   @media #{$breakpoint-xlarge} {
-    flex-direction: column;
-    align-items: center;
-    margin: 1.875rem 3.75rem;
+    flex-direction: column; // Changing the direction of element layout to under the other
+    margin: 1.875rem 3.75rem; // Spacing outside the element
   }
 }
