@@ -2,10 +2,21 @@
 --------------------*/
 .card {
   position: relative; // Allowing to move a position absolute element in the area of the card
+  transition: 0.3s ease-in-out; // Transition settings (for hover)
 
   // Hover effect on the entire card
   &:hover {
+    transform: translateY(-0.5rem); // Lifting the card up 8px
     cursor: pointer;
+  }
+
+  &:hover &__icons {
+    border-image: linear-gradient(
+      0.25turn,
+      #7800c6,
+      #7000ff
+    ); // Changing icons border-top colors on hover
+    border-image-slice: 1; // Make the border visible
   }
 
   // Container with title, description and user actions
@@ -19,7 +30,7 @@
     height: calc(100% - 150px); // Used for equal height of columns and minus the image height
     width: 100%; // Fill out the entire space
     border-radius: 0.625rem; // Border radius of 10px
-    padding: 3rem 2rem 0 2rem;
+    padding: 3rem 2rem 0 2rem; // Spacing inside the element
     background-color: var(--card-bg);
   }
 
@@ -62,6 +73,14 @@
     border-top: 1px solid; // Border on the top of the icons
     border-image: linear-gradient(0.25turn, #1362d8, #02dbe9); // Linear color for the border
     border-image-slice: 1; // Divides the border image. Setting to 1 makes the border visible
+    transition: 0.3s ease-in-out; //Transition settings
+
+    .icon {
+      &:hover {
+        filter: invert(12%) sepia(96%) saturate(6190%) hue-rotate(268deg) brightness(70%)
+          contrast(127%); // Using filter to change icon color. The SVG is in img tags, so color can't be changed with fill
+      }
+    }
   }
 
   // Class used for adaptive for of the cards

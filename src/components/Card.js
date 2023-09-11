@@ -27,10 +27,10 @@ export function Card({ name, poster, genres, id, setSelectedGame, selectedGame }
             </p>
           </div>
           <div className="card__icons">
-            <img src={participate} alt="crosshair icon" />
-            <img src={addfriend} alt="add friend icon" />
-            <img src={addfavorite} alt="add favorite icon" />
-            <img src={repost} alt="repost icon" />
+            <img className="icon" src={participate} alt="crosshair icon" />
+            <img className="icon" src={addfriend} alt="add friend icon" />
+            <img className="icon" src={addfavorite} alt="add favorite icon" />
+            <img className="icon" src={repost} alt="repost icon" />
           </div>
         </div>
       </Link>

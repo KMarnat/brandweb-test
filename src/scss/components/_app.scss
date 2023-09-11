@@ -82,10 +82,17 @@ strong {
 
 // Main button styles
 .btn-primary {
-  background: linear-gradient(#7800c6, #7000ff) padding-box,
-    linear-gradient(#7800c6, #7000ff) border-box; // Gradient background color
+  background-color: var(--purp-hl);
   border-radius: 1.5rem; // 24px border radius
   margin: 0 0.4rem; // Margin on the left and right side, to give it extra space
+  transition: 0.3s ease-in-out; // Transition settings
+  border-color: var(--purp-hl);
+  border: 2px solid var(--purp-hl);
+
+  &:hover {
+    background-color: transparent; // Removing background
+    transform: translateY(-0.2rem); // Moving the button up on the Y axis
+  }
 }
 
 // Secondary button styles
@@ -93,4 +100,10 @@ strong {
   border: 2px solid var(--purp-hl); // 2px border around the button
   border-radius: 1.5rem; // 24px border radius
   margin: 0 0.4rem; // Margin on the left and right side, to give it extra space
+  transition: 0.3s ease; // Transition settings
+
+  &:hover {
+    background-color: var(--purp-hl); // Gradient background color
+    transform: translateY(-0.2rem); // Moving the button up on Y axis
+  }
 }
