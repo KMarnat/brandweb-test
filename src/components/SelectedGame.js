@@ -5,8 +5,8 @@ import { SkeletonSelect } from "./SkeletonSelect";
 
 export function SelectedGame() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedGame, setSelectedGame] = useState(window.location.pathname.split("selected/")[1]);
-  const [query, setQuery] = useState(window.location.search);
+  const [selectedGame] = useState(window.location.pathname.split("selected/")[1]);
+  const [setQuery] = useState(window.location.search);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedGameData, setSelectedGameData] = useState({});
   const englishAbout = selectedGameData.description_raw?.slice(
@@ -24,6 +24,7 @@ export function SelectedGame() {
       fetchGameData(localStorage.getItem("Game_ID") || selectedGame);
       setQuery("");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedGame]);
 
   // Uses selected games ID and fetches it and stores the data into selectedGameData
