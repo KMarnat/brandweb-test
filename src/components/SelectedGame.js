@@ -6,7 +6,8 @@ import { SkeletonSelect } from "./SkeletonSelect";
 export function SelectedGame() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedGame] = useState(window.location.pathname.split("selected/")[1]);
-  const [setQuery] = useState(window.location.search);
+  // eslint-disable-next-line no-unused-vars
+  const [query, setQuery] = useState(window.location.search);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedGameData, setSelectedGameData] = useState({});
   const englishAbout = selectedGameData.description_raw?.slice(
