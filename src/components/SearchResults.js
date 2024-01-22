@@ -11,7 +11,6 @@ import { addDataToFirestore } from "../utils/shared";
 export function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
   const [games, setGames] = useState([]);
-  const [searchedGames, setSearchedGames] = useState([]);
   const [activeTab, setActiveTab] = useState(1);
   const [selectedGame, setSelectedGame] = useState(localStorage.getItem("Game_ID") || null);
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ export function SearchResults() {
         setQuery("");
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [window.location.search]
   );
 
@@ -47,6 +47,7 @@ export function SearchResults() {
         fetchData(setIsLoading, setGames, KEY);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [query]
   );
 

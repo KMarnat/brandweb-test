@@ -1,25 +1,25 @@
-import logo from '../assets/logo.svg';
-import socials from '../assets/socials.svg';
-import about from '../assets/about.svg';
-import challenges from '../assets/challenges.svg';
-import help from '../assets/help.svg';
-import news from '../assets/news.svg';
-import partners from '../assets/partners.svg';
-import teams from '../assets/teams.svg';
-import tournaments from '../assets/tournaments.svg';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import logo from "../assets/logo.svg";
+import socials from "../assets/socials.svg";
+import about from "../assets/about.svg";
+import challenges from "../assets/challenges.svg";
+import help from "../assets/help.svg";
+import news from "../assets/news.svg";
+import partners from "../assets/partners.svg";
+import teams from "../assets/teams.svg";
+import tournaments from "../assets/tournaments.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export function Sidebar({}) {
+export function Sidebar() {
   const [openSidebar, setOpenSidebar] = useState(false);
   const navigate = useNavigate();
 
   return (
-    <aside className={openSidebar ? 'sidebar sidebar--active' : 'sidebar'}>
+    <aside className={openSidebar ? "sidebar sidebar--active" : "sidebar"}>
       <button className="sidebar__toggle" onClick={() => setOpenSidebar(!openSidebar)}>
-        {openSidebar ? '«' : '»'}
+        {openSidebar ? "«" : "»"}
       </button>
-      <img src={logo} alt="logo" className="sidebar__logo" onClick={() => navigate('/')} />
+      <img src={logo} alt="logo" className="sidebar__logo" onClick={() => navigate("/")} />
       <div>
         <div className="sidebar__menu">
           <div className="sidebar__menu-title">
@@ -28,15 +28,15 @@ export function Sidebar({}) {
           <ul>
             <li>
               <img src={challenges} alt="challenges icon" />
-              <a href="#">Games</a>
+              <p>Games</p>
             </li>
             <li>
               <img src={tournaments} alt="tournaments icon" />
-              <a href="#">Tournaments</a>
+              <p>Tournaments</p>
             </li>
             <li>
               <img src={teams} alt="teams icon" />
-              <a href="#">Teams</a>
+              <p>Teams</p>
             </li>
           </ul>
         </div>
@@ -45,19 +45,19 @@ export function Sidebar({}) {
           <ul>
             <li>
               <img src={news} alt="challenges icon" />
-              <a href="#">News</a>
+              <p>News</p>
             </li>
             <li>
               <img src={partners} alt="partners icon" />
-              <a href="#">Partners</a>
+              <p>Partners</p>
             </li>
             <li>
               <img src={about} alt="about icon" />
-              <a href="#">About</a>
+              <p>About</p>
             </li>
             <li>
               <img src={help} alt="help icon" />
-              <a href="#">Help</a>
+              <p>Help</p>
             </li>
           </ul>
         </div>

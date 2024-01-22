@@ -50,13 +50,14 @@
       color: var(--main-gray); // Setting text color
 
       // Selecting the anchor tags in list items
-      a {
+      p {
         padding-left: 2.5rem; // Spacing inside the element, left
         z-index: 3; // Stack level of the element, Z index
 
         // Hover effect
         &:hover {
           color: var(--main-white); // Color of text
+          cursor: pointer;
         }
       }
 
