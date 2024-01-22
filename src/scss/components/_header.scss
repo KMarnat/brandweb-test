@@ -104,6 +104,7 @@
 
     //  Image of the user
     &-avatar {
+      object-fit: cover;
       border-radius: 50%; // Setting border radius
       height: 4rem;
       width: 4rem;

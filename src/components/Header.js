@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { ArrowButton } from './ArrowButton';
-import bell from '../assets/bell.svg';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { ArrowButton } from "./ArrowButton";
+import bell from "../assets/bell.svg";
 
 export function Header({ query, setQuery }) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -12,10 +12,10 @@ export function Header({ query, setQuery }) {
   return (
     <header className="header">
       <div className="header__actions">
-        <ArrowButton onClick={() => navigate(-1)} className={'header__actions-navbtn'}>
+        <ArrowButton onClick={() => navigate(-1)} className={"header__actions-navbtn"}>
           &lt;
         </ArrowButton>
-        <ArrowButton onClick={() => navigate(+1)} className={'header__actions-navbtn'}>
+        <ArrowButton onClick={() => navigate(+1)} className={"header__actions-navbtn"}>
           &gt;
         </ArrowButton>
 
@@ -33,7 +33,7 @@ export function Header({ query, setQuery }) {
       <div className="header__useractions">
         {!loggedIn ? (
           <>
-            <Link to={'/login'}>
+            <Link to={"/login"}>
               <button
                 className="header__btn btn-secondary"
                 onClick={() => setLoggedIn((loggedIn) => !loggedIn)}
@@ -41,22 +41,22 @@ export function Header({ query, setQuery }) {
                 Login
               </button>
             </Link>
-            <Link to={'/register'}>
+            <Link to={"/register"}>
               <button className="header__btn btn-primary">Sign up</button>
             </Link>
           </>
         ) : (
           <>
             <div className="header__user">
-              <Link to={'/profile'}>
+              <Link to={"/profile"}>
                 <div className="header__user-info">
-                  <h4>Neroin</h4>
-                  <p>Alexander Juul Jakobsen</p>
+                  <h4>randomName123</h4>
+                  <p>Bob McBob</p>
                 </div>
               </Link>
-              <Link to={'/profile'}>
+              <Link to={"/profile"}>
                 <img
-                  src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   className="header__user-avatar"
                   alt="avatar"
                 />

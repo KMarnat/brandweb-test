@@ -1,26 +1,26 @@
-import { Card } from './Card';
-import { SkeletonCard } from './SkeletonCard.js';
-import { fetchData, fetchSearchData } from '../utils/shared';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Filter } from './Filter';
-import { db } from '../services/firebase.config';
-import { collection, getDocs } from 'firebase/firestore';
-import { addDataToFirestore } from '../utils/shared';
+import { Card } from "./Card";
+import { SkeletonCard } from "./SkeletonCard.js";
+import { fetchData, fetchSearchData } from "../utils/shared";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Filter } from "./Filter";
+import { db } from "../services/firebase.config";
+import { collection, getDocs } from "firebase/firestore";
+import { addDataToFirestore } from "../utils/shared";
 
 export function SearchResults() {
   const [isLoading, setIsLoading] = useState(false);
   const [games, setGames] = useState([]);
   const [searchedGames, setSearchedGames] = useState([]);
   const [activeTab, setActiveTab] = useState(1);
-  const [selectedGame, setSelectedGame] = useState(localStorage.getItem('Game_ID') || null);
+  const [selectedGame, setSelectedGame] = useState(localStorage.getItem("Game_ID") || null);
   const navigate = useNavigate();
   const [query, setQuery] = useState(window.location.search);
 
-  const resultsTitle = ['All games', 'Recent games', 'Most anticipated', 'Top games'];
+  const resultsTitle = ["All games", "Recent games", "Most anticipated", "Top games"];
   const totalSkeletonCards = 20;
 
-  const KEY = '01e85fc802ad4eb8850bc0b50857cb0b';
+  const KEY = "01e85fc802ad4eb8850bc0b50857cb0b";
 
   // First load of the site, fetching the games
   useEffect(
@@ -28,7 +28,7 @@ export function SearchResults() {
       if (window.location.search.length > 3) {
         setQuery(window.location.search);
       } else {
-        setQuery('');
+        setQuery("");
       }
     },
     [window.location.search]
@@ -36,14 +36,14 @@ export function SearchResults() {
 
   useEffect(
     function () {
-      if (window.location.pathname === '/search' && !query) {
-        navigate('/');
+      if (window.location.pathname === "/search" && !query) {
+        navigate("/");
       }
       if (query.length >= 3) {
-        fetchSearchData(setIsLoading, setGames, KEY, query.replace('?', ' '));
+        fetchSearchData(setIsLoading, setGames, KEY, query.replace("?", " "));
       } else {
         setGames([]);
-        console.log('Fetching from the API');
+
         fetchData(setIsLoading, setGames, KEY);
       }
     },
@@ -65,9 +65,8 @@ export function SearchResults() {
         const response = await fetch(url);
         const data = await response.json();
 
-        setQuery('');
+        setQuery("");
         setGames(data.results);
-        console.log('Fetching from the rawg API');
 
         // Add the data to the collection
         addDataToFirestore(storageKey, data.results);
@@ -75,7 +74,6 @@ export function SearchResults() {
         // Data already in collection, no need to fetch from API
         const firestoreGames = gamesSnapshot.docs.map((doc) => doc.data());
         setGames(firestoreGames);
-        console.log('Fetching from the collection in Firestore');
       }
 
       setActiveTab(tabNumber);
@@ -83,7 +81,6 @@ export function SearchResults() {
       console.log(err.message);
     } finally {
       setIsLoading(false);
-      console.log(filteredCriteria);
     }
   };
 
@@ -101,7 +98,7 @@ export function SearchResults() {
       />
       <div className="results">
         {query ? (
-          <h4>Search results for '{query.replace('?', ' ')}'</h4>
+          <h4>Search results for '{query.replace("?", " ")}'</h4>
         ) : (
           <h4>{resultsTitle[activeTab - 1]}</h4>
         )}

@@ -1,15 +1,14 @@
-import { getDocs, addDoc, collection } from 'firebase/firestore';
-import { db } from '../services/firebase.config';
+import { getDocs, addDoc, collection } from "firebase/firestore";
+import { db } from "../services/firebase.config";
 
 export const fetchData = async (setIsLoading, setGames, KEY) => {
   try {
     setIsLoading(true);
     const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}`);
-    if (!res) throw new Error('Error fetchin data');
+    if (!res) throw new Error("Error fetchin data");
 
     const newData = await res.json();
     setGames(newData.results);
-    console.log('Fetching from API');
   } catch (err) {
     console.error(err.message);
   } finally {
@@ -25,7 +24,7 @@ export const fetchSearchData = async (setIsLoading, setGames, KEY, query) => {
   try {
     setIsLoading(true);
     const res = await fetch(`https://api.rawg.io/api/games?key=${KEY}&search=${query}`);
-    if (!res) throw new Error('Error fetching searched data');
+    if (!res) throw new Error("Error fetching searched data");
 
     const newData = await res.json();
     setGames(newData.results);
@@ -69,6 +68,6 @@ export const addDataToFirestore = async (filteredGames, fetchedGames) => {
       })
     );
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };

@@ -1,30 +1,28 @@
-import { useState, useEffect } from 'react';
-import { GameDetail } from './GameDetail';
-import { Metacritic } from './Metacritic';
-import { SkeletonSelect } from './SkeletonSelect';
+import { useState, useEffect } from "react";
+import { GameDetail } from "./GameDetail";
+import { Metacritic } from "./Metacritic";
+import { SkeletonSelect } from "./SkeletonSelect";
 
 export function SelectedGame() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [selectedGame, setSelectedGame] = useState(window.location.pathname.split('selected/')[1]);
+  const [selectedGame, setSelectedGame] = useState(window.location.pathname.split("selected/")[1]);
   const [query, setQuery] = useState(window.location.search);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedGameData, setSelectedGameData] = useState({});
   const englishAbout = selectedGameData.description_raw?.slice(
     0,
-    selectedGameData.description_raw.indexOf('Español')
+    selectedGameData.description_raw.indexOf("Español")
   );
 
   function toggleExpanded() {
     setIsExpanded((isExpanded) => !isExpanded);
   }
 
-  console.log(selectedGame);
-
   // When selectedGame state changes, ie a game card is pressed, it runs the fetching of the data.
   useEffect(() => {
-    if (selectedGame !== null || localStorage.getItem('Game_ID')) {
-      fetchGameData(localStorage.getItem('Game_ID') || selectedGame);
-      setQuery('');
+    if (selectedGame !== null || localStorage.getItem("Game_ID")) {
+      fetchGameData(localStorage.getItem("Game_ID") || selectedGame);
+      setQuery("");
     }
   }, [selectedGame]);
 
@@ -36,7 +34,7 @@ export function SelectedGame() {
       const res = await fetch(
         `https://api.rawg.io/api/games/${selectedGame}?key=01e85fc802ad4eb8850bc0b50857cb0b`
       );
-      if (!res) throw new Error('Error fetching game data');
+      if (!res) throw new Error("Error fetching game data");
 
       const newData = await res.json();
       setSelectedGameData({ ...newData });
@@ -67,10 +65,10 @@ export function SelectedGame() {
               <p>
                 {isExpanded
                   ? englishAbout
-                  : englishAbout?.split(' ').slice(0, 30).join(' ') + '...'}
+                  : englishAbout?.split(" ").slice(0, 30).join(" ") + "..."}
               </p>
               <button onClick={toggleExpanded} className="detail__expander">
-                {isExpanded ? 'Show less...' : 'Show more...'}
+                {isExpanded ? "Show less..." : "Show more..."}
               </button>
             </div>
           </div>
@@ -80,7 +78,7 @@ export function SelectedGame() {
               title="Platforms"
               detail={selectedGameData.platforms?.map((plat, i) => (
                 <span key={i}>
-                  {plat.platform.name} {i !== selectedGameData.platforms.length - 1 && ' | '}
+                  {plat.platform.name} {i !== selectedGameData.platforms.length - 1 && " | "}
                 </span>
               ))}
             />
@@ -89,7 +87,7 @@ export function SelectedGame() {
               title="Developers"
               detail={selectedGameData.developers?.map((dev, i) => (
                 <span key={dev.id}>
-                  {dev.name} {i !== selectedGameData.developers.length - 1 && ' | '}
+                  {dev.name} {i !== selectedGameData.developers.length - 1 && " | "}
                 </span>
               ))}
             />
@@ -97,7 +95,7 @@ export function SelectedGame() {
               title="Publishers"
               detail={selectedGameData.publishers?.map((publisher, i) => (
                 <span key={publisher.id}>
-                  {publisher.name} {i !== selectedGameData.publishers.length - 1 && ' | '}
+                  {publisher.name} {i !== selectedGameData.publishers.length - 1 && " | "}
                 </span>
               ))}
             />
@@ -105,11 +103,11 @@ export function SelectedGame() {
               title="Genres"
               detail={selectedGameData.genres?.map((genre, i) => (
                 <span key={genre.id}>
-                  {genre.name} {i !== selectedGameData.length - 1 && ' | '}
+                  {genre.name} {i !== selectedGameData.length - 1 && " | "}
                 </span>
               ))}
             />
-            <GameDetail title="Rating" detail={selectedGameData.rating + '/5'} />
+            <GameDetail title="Rating" detail={selectedGameData.rating + "/5"} />
             {selectedGameData.metacritic && (
               <Metacritic selectedMetacritic={selectedGameData.metacritic} />
             )}

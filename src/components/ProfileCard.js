@@ -1,5 +1,5 @@
-import profilemenu from '../assets/threedots.svg';
-import { useRef, useEffect, useState } from 'react';
+import profilemenu from "../assets/threedots.svg";
+import { useRef, useEffect, useState } from "react";
 
 export default function ProfileCard() {
   const [avatarHeight, setAvatarHeight] = useState(0);
@@ -16,11 +16,11 @@ export default function ProfileCard() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => {
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
     };
   }, []);
 
@@ -34,7 +34,7 @@ export default function ProfileCard() {
         <div className="aspect-ratio">
           <div>
             <img
-              src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="profile avatar"
             />
           </div>
@@ -43,8 +43,8 @@ export default function ProfileCard() {
       <div className="profilecard__content">
         <img src={profilemenu} alt="profile menu" className="profilecard__menu" />
         <div className="profilecard__details">
-          <h2>Neroin</h2>
-          <p>Alexander Juul Jakobsen</p>
+          <h2>randomName123</h2>
+          <p>Bob McBob</p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu quisque in mi consectetur
             tempor nulla turpis sagittis non. Tincidunt...

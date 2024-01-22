@@ -15,7 +15,7 @@
     // Pseudo element, to create the offline/online status dot on the image
     &--online::before {
       position: absolute; // Element is removed from the normal document flow
-      content: ''; // Replaces element with a generated value
+      content: ""; // Replaces element with a generated value
       background-color: #26b119; // Background color of the status
       border-radius: 50%; // Round corners
       width: 0.5rem;
@@ -26,7 +26,7 @@
     // Pseudo element, to create the offline/online status dot on the image
     &--offline::before {
       position: absolute; // Element is removed from the normal document flow
-      content: ''; // Replaces element with a generated value
+      content: ""; // Replaces element with a generated value
       background-color: #ff0000; // Background color of the status
       border-radius: 50%; // Round corners
       width: 0.5rem;

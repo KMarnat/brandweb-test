@@ -107,6 +107,8 @@
 
       // Image of the post author
       &-img {
+        object-fit: cover;
+        border-radius: 50%;
         width: 3.5rem; // Setting dimensions
         height: 3.5rem; // Setting dimensions
       }

@@ -1,10 +1,10 @@
-import addmedia from '../assets/addmedia.svg';
-import addemoji from '../assets/addemoji.svg';
-import submit from '../assets/arrow.svg';
-import settings from '../assets/threedots.svg';
-import likes from '../assets/likes.svg';
-import comments from '../assets/comments.svg';
-import UserWithStatus from './UserWithStatus.js';
+import addmedia from "../assets/addmedia.svg";
+import addemoji from "../assets/addemoji.svg";
+import submit from "../assets/arrow.svg";
+import settings from "../assets/threedots.svg";
+import likes from "../assets/likes.svg";
+import comments from "../assets/comments.svg";
+import UserWithStatus from "./UserWithStatus.js";
 
 export default function ProfileFeed() {
   return (
@@ -15,7 +15,9 @@ export default function ProfileFeed() {
 
       <div className="create-post">
         <UserWithStatus
-          source={'https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png'}
+          source={
+            "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
           status={true}
         />
         <div className="create-post__inputarea">
@@ -37,7 +39,7 @@ export default function ProfileFeed() {
       <article className="post">
         <div className="post__author">
           <img
-            src="https://brandweb.agency/wp-content/uploads/2023/04/brandweb_alexander.png"
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="profile avatar"
             className="post__author-img"
           />
